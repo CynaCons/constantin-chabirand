@@ -28,15 +28,44 @@ export const content: PortfolioContent = {
       "Diplôme d'Ingénieur (MSc), Embedded Systems — ESEO, Angers, France (2012–2017)",
     ],
     certifications: [
-      'Vector Certified Embedded Professional for BSW Integration (CEP.BSWInt), 2021',
+      'Vector CEP for BSW Integration (CEP.BSWInt) — 2021, renewed 2024',
       'TOEIC 960 · Cambridge First Certificate (grade A)',
     ],
+    earlier:
+      'Embedded SW trainee at Bosch (AUTOSAR infotainment, end-customer GM, 2017); IoT internship at NTUST Taipei (LoRa on STM32F4, 2016); led an 8-person ESEO IoT/BLE project (Raspberry Pi, Android, Yocto).',
     links: [
       { label: 'LinkedIn', url: 'https://linkedin.com/in/constantin-chabirand-3380468b' },
       { label: 'GitHub', url: 'https://github.com/CynaCons' },
       { label: 'Stack Overflow', url: 'https://stackoverflow.com/users/5825225/constantin-chabirand' },
     ],
   },
+
+  current: [
+    {
+      title: 'Pegasus — ESA 1 Tbps Optical Link',
+      context: 'Mynaric · ESA ScyLight / HydRON',
+      blurb:
+        "Embedded firmware for Mynaric's ESA Pegasus program — an end-to-end optical communication system targeting 1 Tbps inter-satellite links, within ESA's ScyLight / HydRON optical-network initiative.",
+      tags: ['ESA', 'Lasercom', 'ARM Cortex-M7', '1 Tbps'],
+      accent: 'domain-space',
+    },
+    {
+      title: 'Single-File Interactive Test Reports',
+      context: 'Mynaric · engineering innovation',
+      blurb:
+        'Pioneered self-contained HTML test reports at Mynaric: a full interactive app — JavaScript, dynamic charts and the complete dataset — embedded into one portable HTML file via the Vite single-file plugin. Shareable, offline, zero server.',
+      tags: ['Vite', 'Single-file', 'Data viz', 'TypeScript'],
+      accent: 'domain-ai',
+    },
+    {
+      title: 'PowerNote & PowerPlanner',
+      context: 'Personal · scaffolded "app-files"',
+      blurb:
+        'Self-contained app-file tools built on a reusable single-file scaffold — each ships as one portable HTML file with app and data inlined. Fast, dependency-free personal tooling.',
+      tags: ['Vite', 'Single-file', 'React', 'TypeScript'],
+      accent: 'domain-ai',
+    },
+  ],
 
   domains: [
     /* ================= SPACE-TECH / LASERCOM ================= */
@@ -48,7 +77,7 @@ export const content: PortfolioContent = {
       tagline:
         'Sole engineer, zero lasercom background — production optical-terminal firmware shipped in roughly six months.',
       summary:
-        "Sole embedded software engineer on DARPA's Space-BACN free-space optical communications program at Mynaric Lasercom, taking over end-to-end firmware from scratch with no prior lasercom background. Delivered the optical control subsystems on an ARM Cortex-M7 platform in roughly six months, and now contributes to an ESA optical-terminal program. Mynaric was acquired by Rocket Lab in April 2026.",
+        "Sole embedded software engineer on DARPA's Space-BACN free-space optical communications program at Mynaric Lasercom, taking over end-to-end firmware from scratch with no prior lasercom background. Delivered the optical control subsystems on an ARM Cortex-M7 platform in roughly six months, and now contributes to Mynaric's ESA Pegasus program (ScyLight / HydRON). Mynaric was acquired by Rocket Lab in April 2026.",
       skills: [
         'Embedded C on ARM Cortex-M7 (Microchip SAMV71)',
         'Real-time DSP with ARM CMSIS-DSP (FIR/IIR, mixers, BPF/LPF)',
@@ -138,16 +167,16 @@ export const content: PortfolioContent = {
       skills: [
         'AUTOSAR Classic BSW (OS, RTE, Dcm, Dem, Com, NvM, E2E, EcuM, BswM, CanTp, SecOC, Csm)',
         'ISO 26262 functional safety to ASIL-D: MPU partitioning, E2E, watchdog stack, mixed-ASIL isolation',
-        'Multicore SoC bring-up: AURIX TC3XX (TriCore), ST SR6P6 (Cortex-R52), TI TDA4VM (A72/R5F)',
+        'Multicore SoCs: AURIX TC3XX (TriCore), ST SR6P6 (Cortex-R52), TI TDA4VM (A72/R5F), NXP S32K, Renesas RH850 / R-Car, ST SPC (PowerPC)',
         'Real-time scheduling: synchronized schedule tables, cross-core task chains, µs-precision timing',
         'Embedded C (expert); Assembly (ARM / TriCore startup & debug)',
-        'Vector toolchain: DaVinci, MICROSAR, CANoe, CANape; CEP-certified',
-        'Automotive cybersecurity: HSM, SecOC, Secure Boot/Flashing; ISO 21434 (TARA)',
-        'CAN / CAN-FD, LIN, Automotive Ethernet (SOME/IP, DoIP), XCP, ISO 15118 / CCS',
+        'BSW stacks: Vector MICROSAR, EB Tresos, ETAS, KPIT, Hyundai MobilGene; Vector tools (DaVinci, CANoe, CANape); CEP-certified',
+        'Automotive cybersecurity: HSM/SHE, SecOC, Secure Boot/Flashing, IPSec; ISO 21434 (TARA)',
+        'CAN / CAN-FD, LIN, FlexRay, J1939, Automotive Ethernet (SOME/IP, DoIP), XCP, ISO 15118 / CCS',
         'ARMv8-R hypervisor (EL1/EL2), MPU, Cortex-M/R/A families',
         'Diagnostics: UDS, OBD-on-UDS, Dcm/Dem/FiM',
         'CI/CD: Jenkins + Python + CANoe.XCP validation pipelines',
-        'Debug: Lauterbach TRACE32, GLIWA T1, scope, logic analyzer',
+        'Debug: Lauterbach TRACE32, GLIWA T1, Greenhills, iSystem/Tasking, UDE, scope, logic analyzer',
       ],
       projects: [
         {
@@ -289,6 +318,30 @@ export const content: PortfolioContent = {
           links: [],
         },
         {
+          id: 'adaptive-autosar',
+          title: 'Adaptive AUTOSAR Validation — Vector Informatik',
+          org: 'T&S Engineering (client: Vector Informatik)',
+          period: '2019 – 2020',
+          role: 'Embedded Software Engineer (C++17 / Linux)',
+          summary:
+            "Product validation of Vector's Adaptive MICROSAR stack on a Yocto-Linux target — the practice's deep dive into POSIX / Adaptive AUTOSAR alongside its Classic work, for its first customer, Vector Informatik.",
+          highlights: [
+            'Built a Yocto-based Linux image for an Intel Minnowboard and deployed the Adaptive MICROSAR (aMSR) stack end-to-end.',
+            'Developed C++17 Adaptive Applications exercising ara::com, SOME/IP, Persistency, Network Management, Execution Management, Diagnostics and Crypto.',
+            'Analyzed TCP/IP and UDP traffic with CANoe and Wireshark during functional-cluster validation.',
+          ],
+          tech: [
+            'Adaptive AUTOSAR (aMSR)',
+            'C++17',
+            'Yocto / Linux',
+            'SOME/IP',
+            'ara::com',
+            'Intel Minnowboard',
+            'Wireshark',
+          ],
+          links: [],
+        },
+        {
           id: 'autosar-practice',
           title: 'AUTOSAR Practice — Department Founding & Academy',
           org: 'T&S Engineering, Stuttgart',
@@ -298,10 +351,11 @@ export const content: PortfolioContent = {
             "Founded and scaled T&S Engineering's AUTOSAR engineering-services practice from a single engineer to a 60+ person team generating €11.2M annual revenue (2023), and created the T&S AUTOSAR Academy that became the company-wide training standard.",
           highlights: [
             'Scaled the AUTOSAR Practice from 1 to 60+ permanent engineers across Stuttgart, Lyon and Toulouse — the first and most successful practice of its kind at T&S.',
-            'Founded the T&S AUTOSAR Academy (2021), trained 26 engineers on BSW integration; the model was standardized company-wide.',
+            'Vector Informatik was the first customer (2018); the practice went on to serve Mercedes/Daimler, VW, BMW, Renault, Stellantis, Volvo and Hyundai, working across their OEM-specific AUTOSAR extensions.',
+            'Founded the T&S AUTOSAR Academy (2021) — internal onboarding plus a paid external training service for customers — and trained 26 engineers; the model was standardized company-wide.',
+            'Built an internal "AUTOSAR Platform" of reusable reference implementations and example projects to accelerate delivery and strengthen bids.',
             'Reached €11.2M annual revenue (2023) via a service-supplier model (full project ownership, not staff aug); delivered 50+ technical presentations to OEMs and Tier 1s across Europe, the US, Israel and Korea.',
-            'Among the first engineering-service providers to earn the Vector CEP for BSW Integration (2021).',
-            'Closed the engagement with a top-grade reference letter.',
+            'Among the first engineering-service providers to earn the Vector CEP for BSW Integration (2021); closed the engagement with a top-grade reference letter.',
           ],
           tech: [
             'AUTOSAR Classic / Adaptive',

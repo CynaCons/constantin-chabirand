@@ -12,14 +12,14 @@
   --color-overlay: #1a2535;
   --color-statusbar: #0a0e13;
 
-  /* Borders */
-  --color-border-dim: #1e2d3d;
-  --color-border-active: #2a4a6b;
+  /* Borders — strengthened for clearer structure */
+  --color-border-dim: #2a4258;
+  --color-border-active: #4471a0;
 
-  /* Text */
-  --color-primary: #e8f4fd;
-  --color-secondary: #93aec6;
-  --color-muted: #5a7790;
+  /* Text — high-contrast set (brightened for readability) */
+  --color-primary: #f3f9ff;
+  --color-secondary: #c6d8ea;
+  --color-muted: #8ea9c0;
 
   /* Accents */
   --color-cyan: #00c8ff;

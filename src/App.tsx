@@ -12,7 +12,7 @@ import CommandPalette from './components/CommandPalette'
 export default function App() {
   const { domain, project, go } = useHashState()
   const [paletteOpen, setPaletteOpen] = useState(false)
-  const { profile, domains } = content
+  const { profile, domains, current } = content
 
   const projectCount = useMemo(
     () => domains.reduce((n, d) => n + d.projects.length, 0),
@@ -57,7 +57,7 @@ export default function App() {
         {activeDomain ? (
           <ProjectGrid domain={activeDomain} onOpenProject={(pid) => go(activeDomain.key, pid)} />
         ) : (
-          <Overview profile={profile} domains={domains} onSelect={(k) => go(k)} />
+          <Overview profile={profile} domains={domains} current={current} onSelect={(k) => go(k)} />
         )}
       </main>
 

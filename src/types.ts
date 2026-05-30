@@ -40,10 +40,24 @@ export interface Profile {
   languages: string[]
   education: string[]
   certifications: string[]
+  /** compact early-career / foundations line */
+  earlier?: string
   links: Link[]
+}
+
+/** Highlighted "what I'm working on now" item. */
+export interface CurrentItem {
+  title: string
+  context: string
+  blurb: string
+  tags: string[]
+  /** CSS color token name, e.g. 'domain-space' */
+  accent: string
+  link?: Link
 }
 
 export interface PortfolioContent {
   profile: Profile
+  current: CurrentItem[]
   domains: Domain[]
 }

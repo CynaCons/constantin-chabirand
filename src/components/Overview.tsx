@@ -1,15 +1,18 @@
 import type { ReactNode } from 'react'
-import { MapPin, GraduationCap, Languages, Award, ArrowUpRight, Plane } from 'lucide-react'
-import type { Profile, Domain } from '../types'
+import { MapPin, GraduationCap, Languages, Award, ArrowUpRight, Plane, History } from 'lucide-react'
+import type { Profile, Domain, CurrentItem } from '../types'
 import { DomainIcon } from '../lib/icons'
+import CurrentSection from './CurrentSection'
 
 export default function Overview({
   profile,
   domains,
+  current,
   onSelect,
 }: {
   profile: Profile
   domains: Domain[]
+  current: CurrentItem[]
   onSelect: (key: string) => void
 }) {
   return (
@@ -24,13 +27,13 @@ export default function Overview({
           <h1 className="font-display text-3xl font-semibold leading-tight text-primary sm:text-4xl">
             {profile.name}
           </h1>
-          <p className="mt-1 font-display text-base text-secondary">{profile.shortDescriptor}</p>
-          <p className="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-secondary">{profile.bio}</p>
+          <p className="mt-1.5 font-display text-lg text-secondary">{profile.shortDescriptor}</p>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-secondary">{profile.bio}</p>
 
           {/* Availability chip */}
-          <div className="mt-5 inline-flex items-start gap-2 rounded-md border border-amber/40 bg-amber/10 px-3 py-2">
-            <Plane className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber" aria-hidden="true" />
-            <span className="text-[0.8rem] text-amber">{profile.availability}</span>
+          <div className="mt-6 inline-flex items-start gap-2 rounded-md border border-amber/50 bg-amber/10 px-3.5 py-2.5">
+            <Plane className="mt-0.5 h-4 w-4 shrink-0 text-amber" aria-hidden="true" />
+            <span className="text-[0.875rem] font-medium text-amber">{profile.availability}</span>
           </div>
 
           {/* Quick facts */}
@@ -51,6 +54,15 @@ export default function Overview({
               label="Certifications"
               value={profile.certifications.join(' · ')}
             />
+            {profile.earlier && (
+              <div className="sm:col-span-2">
+                <Fact
+                  icon={<History className="h-3.5 w-3.5" />}
+                  label="Earlier"
+                  value={profile.earlier}
+                />
+              </div>
+            )}
           </dl>
 
           {/* Links */}
@@ -71,8 +83,11 @@ export default function Overview({
         </div>
       </section>
 
+      {/* ---- Currently working on ---- */}
+      <CurrentSection items={current} />
+
       {/* ---- Domain grid ---- */}
-      <p className="mb-3 mt-8 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-muted">
+      <p className="mb-3 mt-10 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-muted">
         Select a subsystem to explore
       </p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -107,7 +122,7 @@ function Fact({ icon, label, value }: { icon: ReactNode; label: string; value: s
       <span className="mt-0.5 text-muted">{icon}</span>
       <div className="min-w-0">
         <dt className="font-mono text-[0.6rem] uppercase tracking-wide text-muted">{label}</dt>
-        <dd className="text-[0.8rem] text-secondary">{value}</dd>
+        <dd className="text-[0.85rem] leading-relaxed text-secondary">{value}</dd>
       </div>
     </div>
   )
