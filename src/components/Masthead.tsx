@@ -16,9 +16,16 @@ export default function Masthead({ profile }: { profile: Profile }) {
         {profile.shortDescriptor}
       </p>
 
+      <p
+        className="fade-up mt-4 max-w-[56ch] font-body text-[1.15rem] leading-[1.6] text-ink"
+        style={{ animationDelay: '140ms' }}
+      >
+        {profile.bio}
+      </p>
+
       <div
         className="draw-rule mt-6 h-px w-full bg-rule"
-        style={{ animationDelay: '200ms' }}
+        style={{ animationDelay: '240ms' }}
         aria-hidden="true"
       />
 

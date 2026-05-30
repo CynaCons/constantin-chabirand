@@ -14,11 +14,11 @@ export const content: PortfolioContent = {
     name: 'Constantin Chabirand',
     headline:
       'Embedded Systems Engineer — Safety-Critical Automotive · Space-Grade Lasercom · AI-Augmented Tooling',
-    shortDescriptor: 'Embedded Software Engineer · Space Lasercom & Automotive · AI-Augmented',
-    bio: "French embedded systems engineer in Munich with 9 years building and shipping production firmware across three domains: safety-critical automotive (AUTOSAR Classic, ISO 26262 ASIL-D), space-grade free-space optical communications, and AI-augmented tooling. I've delivered firmware on complex multi-core SoCs (Infineon AURIX, ARM Cortex-R52, TI TDA4VM) for OEMs including Mercedes-Benz, Volkswagen, BMW, Tesla and Continental, and currently develop embedded control software for laser-communication terminals at Mynaric (now part of Rocket Lab). Alongside firmware delivery I founded and scaled an embedded engineering practice from 1 to 60+ engineers, and build production tools with a human-architected, AI-accelerated method.",
+    shortDescriptor: 'Embedded Systems Engineer — ASIL-D Automotive · Space Lasercom · AI-Native Development',
+    bio: 'Nine years shipping production firmware — ASIL-D powertrain ECUs for Tesla, Mercedes, VW and BMW; DARPA optical-terminal control; and a 60-engineer practice built from zero.',
     location: 'Munich, Germany',
     availability:
-      'Happily based in Munich, EU — and open to US relocation: H-1B or J-1 (Research Scholar / Expert), sponsor-ready via Cultural Vistas.',
+      'Happily based in Munich, EU — and open to US relocation (H-1B or J-1 Research Scholar).',
     languages: [
       'French (native)',
       'English (fluent — TOEIC 960)',
@@ -42,71 +42,70 @@ export const content: PortfolioContent = {
 
   current: [
     {
-      title: 'Pegasus — ESA 1 Tbps Optical Link',
+      title: 'Pegasus — ESA 1 Tbps Optical Test Bench',
       context: 'Mynaric · ESA ScyLight / HydRON',
       blurb:
-        "Embedded firmware for Mynaric's ESA Pegasus program — an end-to-end optical communication system targeting 1 Tbps inter-satellite links, within ESA's ScyLight / HydRON optical-network initiative.",
-      tags: ['ESA', 'Lasercom', 'ARM Cortex-M7', '1 Tbps'],
+        'Replaced SSH scripts with WebSocket/JSON-RPC daemons and an MCP layer; voice or text commands now actuate optical hardware and read back photodiodes and power meters in real time. The bench runs superchannels up to 400G.',
+      tags: ['ESA', 'MCP', 'FastAPI', '400G'],
       accent: 'domain-space',
     },
     {
       title: 'Single-File Interactive Test Reports',
-      context: 'Mynaric · engineering innovation',
+      context: 'Mynaric · engineering standard',
       blurb:
-        'Pioneered self-contained HTML test reports at Mynaric: a full interactive app — JavaScript, dynamic charts and the complete dataset — embedded into one portable HTML file via the Vite single-file plugin. Shareable, offline, zero server.',
-      tags: ['Vite', 'Single-file', 'Data viz', 'TypeScript'],
+        'Now the Mynaric reporting standard — a full interactive app (charts, filters, raw dataset) inlined into one portable HTML file via Vite. Zero server, fully offline, shareable instantly.',
+      tags: ['Vite', 'Single-file', 'Data viz'],
       accent: 'domain-ai',
     },
     {
       title: 'PowerNote & PowerPlanner',
-      context: 'Personal · scaffolded "app-files"',
+      context: 'Personal · single-file app-files',
       blurb:
-        'Self-contained app-file tools built on a reusable single-file scaffold — each ships as one portable HTML file with app and data inlined. Fast, dependency-free personal tooling.',
-      tags: ['Vite', 'Single-file', 'React', 'TypeScript'],
+        'Self-contained "app-files" — a notes app and a planner — each shipped as one portable HTML file from a reusable Vite single-file scaffold.',
+      tags: ['Vite', 'Single-file', 'TypeScript'],
       accent: 'domain-ai',
     },
   ],
 
   leadership: {
     title: 'The Department Backbone',
-    tagline:
-      "At T&S I didn't just deliver projects — I built and ran the practice that delivered them, and was the engineer customers asked for by name.",
+    tagline: 'One engineer to 60+ and €11.2M — founder, technical lead, and the name customers asked for.',
     metrics: ['1 → 60+ engineers', '€11.2M revenue (2023)', '3 offices: Stuttgart · Lyon · Toulouse'],
     bullets: [
-      'Won the work — wrote the technical-commercial offers, answered hundreds of RFQs, and delivered 50+ presentations to OEMs and Tier 1s across Europe, the US, Israel and Korea.',
-      'Founded the AUTOSAR Academy (internal onboarding + a paid external training service) and ran workshops and trainings across the org.',
-      'Built the operating backbone from scratch: Jira, Bitbucket, a OneNote knowledge base, team SharePoints, a hardware inventory system, and remote control/actuation of all embedded hardware, devices and licenses.',
-      'Created an internal "AUTOSAR Platform" of reusable reference implementations to accelerate delivery and strengthen bids.',
-      'Owned program management — planning, coordination and a great deal of customer reporting: the spine the department relied on.',
+      "Scaled T&S Engineering's AUTOSAR practice from 1 to 60+ engineers across Stuttgart, Lyon and Toulouse; €11.2M annual revenue.",
+      'Sole author on 50+ technical-commercial pitches to OEMs and Tier 1s across Europe, North America and Asia — RFQ through close.',
+      'Founded the AUTOSAR Academy (2021): internal onboarding plus a paid external training service; 26 engineers trained; adopted company-wide.',
+      'Stood up the engineering backbone from zero — Jira, Bitbucket, knowledge base, hardware inventory, and remote device and license access — for three-city delivery.',
+      'Built a reusable "AUTOSAR Platform" of reference implementations to speed delivery and strengthen bids.',
     ],
   },
 
   innovations: [
     {
-      title: 'Natural-language control of an optical test bench',
+      title: 'Natural-language optical bench control',
       blurb:
-        'An MCP tool that lets engineers drive the Pegasus bench by voice or text — "set the amplifier on device A to high output, then read the photodiodes" — and the agent actuates the hardware and reads back the instruments.',
+        'An MCP tool lets engineers drive the Pegasus bench by voice or text — the agent actuates hardware and reads back photodiodes and power meters in real time.',
       year: '2026',
       accent: 'domain-ai',
     },
     {
-      title: 'Collapsed CLS demodulation pipeline on a microcontroller',
+      title: 'Pilot-tone demodulation on bare-metal Cortex-M7',
       blurb:
-        'Reduced a band-pass → mixer → low-pass demod chain to a single pre-computed coefficient set via Constrained Least Squares + Cholesky solving, so a tight ISR demodulates in one minimal-compute loop — hand-optimised at the assembly level (AI-assisted), beating stock CMSIS-DSP.',
+        'A full DSP chain — complex mixer, band-pass, low-pass, FIR — runtime-configurable in frequency and bandwidth with no firmware rebuild; AI-assisted assembly optimisation on the SAMV71.',
       year: '2026',
       accent: 'domain-space',
     },
     {
-      title: 'Single-file interactive test reports',
+      title: 'Polarization control — blind 4D search',
       blurb:
-        'A full interactive app plus its entire dataset inlined into one portable HTML file via the Vite single-file plugin — shareable, offline, zero server. Now a standard reporting format on the team.',
-      year: '2025',
-      accent: 'domain-ai',
+        'Stable left/right-hand circular polarization from a 4-parameter blind search under single-Stokes observability; a 2-pass escalation avoids flat zones and adapts to fibre disturbance at runtime.',
+      year: '2026',
+      accent: 'domain-space',
     },
     {
       title: 'PowerSpawn — multi-agent orchestration',
       blurb:
-        'Open-source MCP server coordinating six AI models (Claude, Codex, Copilot, Grok, Gemini, Mistral) on a shared blackboard with a custom Inter-Agent Context protocol.',
+        'Open-source MCP server coordinating six AI models (Claude, Codex, Copilot, Grok, Gemini, Mistral) on a shared Markdown blackboard via a custom Inter-Agent Context protocol.',
       year: '2025',
       accent: 'domain-ai',
     },
@@ -239,9 +238,9 @@ export const content: PortfolioContent = {
       icon: 'Satellite',
       accent: 'domain-space',
       tagline:
-        'Sole engineer, zero lasercom background — production optical-terminal firmware shipped in roughly six months.',
+        'Sole firmware owner — DARPA optical terminal operational in six months, no prior lasercom background.',
       summary:
-        "Sole embedded software engineer on DARPA's Space-BACN free-space optical communications program at Mynaric Lasercom, taking over end-to-end firmware from scratch with no prior lasercom background. Delivered the optical control subsystems on an ARM Cortex-M7 platform in roughly six months, and now contributes to Mynaric's ESA Pegasus program (ScyLight / HydRON). Mynaric was acquired by Rocket Lab in April 2026.",
+        'Sole firmware engineer on DARPA Space-BACN at Mynaric — delivered the optical-control stack (polarization, DDS pilot tones, PAT, demodulation) on ARM Cortex-M7 in roughly six months. Operated two terminals against Coherent 100G modems on SDA 4.0 Burst-Mode waveforms, tuning OSNR, BER and polarization-constellation metrics. Now extended to ESA Pegasus (ScyLight / HydRON, targeting 1 Tbps).',
       skills: [
         'Embedded C on ARM Cortex-M7 (Microchip SAMV71)',
         'Real-time DSP with ARM CMSIS-DSP (FIR/IIR, mixers, BPF/LPF)',
@@ -263,12 +262,12 @@ export const content: PortfolioContent = {
           period: '2025 – present',
           role: 'Senior Embedded Software Engineer — sole engineer on the program',
           summary:
-            "Sole embedded firmware engineer on DARPA's Space-BACN program — an effort to enable interoperable optical links between commercial and government LEO satellite constellations. Joined with no prior lasercom background and delivered the optical control subsystems end-to-end on an ARM Cortex-M7 (SAMV71): design, implementation, integration and terminal-level testing.",
+            "Sole firmware engineer on DARPA Space-BACN — enabling interoperable optical links between commercial and government LEO constellations. Delivered the optical-control subsystems end-to-end on ARM Cortex-M7 (SAMV71), with no prior lasercom background, in roughly six months.",
           highlights: [
             'Ramped from zero lasercom background to sole firmware owner: started on the benchtop characterizing optical features (EDFAs, fibers, beam control), then moved onto the laser terminal once produced — learning the optical-head tooling from test operators, then operating independently.',
             'Brought up polarization control and sensing, achieving stable left- and right-hand circular polarization on the link.',
             'Implemented embedded Direct Digital Synthesis (DDS) for pilot-tone generation — clean, accurate tones across a wide frequency range at negligible CPU cost.',
-            'Built the demodulation chain (band-pass → mixer → low-pass) the hard way: designed the filters with Constrained Least Squares + Cholesky solving, then collapsed the whole pipeline into a single pre-computed coefficient set so a tight ISR demodulates in one minimal-compute loop — hand-optimised at the assembly level (AI-assisted), outperforming stock CMSIS-DSP.',
+            'Built the demodulation chain (band-pass → mixer → low-pass): designed the filters with Constrained Least Squares, then collapsed the whole pipeline into a single pre-computed coefficient set so a tight ISR demodulates in one minimal-compute loop — hand-optimised at the assembly level (AI-assisted).',
             'Controlled EDFA power, divergent-beam and optical-filter subsystems; developed Pointing, Acquisition & Tracking (PAT) behaviour at terminal level.',
             'Operated two optical terminals to establish links on the test bed, and ran the bench against Coherent 100G source modems shooting SDA 4.0 Burst-Mode waveforms — tuning the terminal against OSNR, BER and polarization-constellation metrics.',
             'Built the supporting control app (React + Vite front end, Python back end) for AI-driven test automation, generating single-file interactive HTML test reports.',
@@ -295,7 +294,7 @@ export const content: PortfolioContent = {
           period: '2026 – present',
           role: 'Senior Embedded Software Engineer — software architecture',
           summary:
-            "Embedded software on Mynaric's ESA Pegasus program (ESA ScyLight / HydRON) — a large optical test bed that simulates light travelling through the “hops” of a satellite constellation, targeting 1 Tbps with wavelength superchannels. I re-architected the control-software stack.",
+            "Re-architected Mynaric's ESA Pegasus bench control stack (ScyLight / HydRON, targeting 1 Tbps): replaced SSH scripts with WebSocket/JSON-RPC daemons and an MCP layer for natural-language hardware control. The bench operates wavelength superchannels up to 400G.",
           highlights: [
             'Drive the bench end-to-end: superchannels (many wavelengths in one beam), multiple laser types and modulation formats (e.g. 100G QPSK / DPSK) — reaching up to 400G in tests — across optical amplifiers, wavelength-selective switches and embedded controllers.',
             'Re-architected the control stack: replaced an SSH-and-run-a-script workflow with daemons on the embedded devices speaking WebSocket + JSON-RPC to a control tool (React front end, Python FastAPI back end).',
@@ -338,10 +337,9 @@ export const content: PortfolioContent = {
       label: 'Automotive / Safety-Critical',
       icon: 'Cpu',
       accent: 'domain-auto',
-      tagline:
-        'Eight years of ASIL-D production firmware — from bare-metal Cortex-M0 sensors to a 6-core hybrid-powertrain ECU.',
+      tagline: 'ASIL-D production firmware, bare-metal to powertrain — five OEMs, deployed in vehicles.',
       summary:
-        'Eight years building and shipping production automotive ECU software at T&S Engineering — from bare-metal Cortex-M0 parking sensors to a 6-core ASIL-D hybrid-powertrain ECU in the Mercedes-Benz CLA. Full AUTOSAR Classic stack, multicore real-time scheduling, functional-safety architecture, automotive cybersecurity and EV charging, across hardware from Infineon AURIX to ARM Cortex-R52 to TI TDA4VM, for Mercedes-Benz, Volkswagen, BMW, Tesla and Continental. Founded and scaled the embedded practice from 1 to 60+ engineers and €11.2M annual revenue.',
+        'Built and shipped production ECU software across every layer — AUTOSAR BSW, multicore real-time scheduling, functional-safety architecture, EV charging — on hardware from AURIX TC399 TriCore to ARM Cortex-R52 to TI TDA4VM, for Mercedes-Benz, Volkswagen, BMW, Tesla and Continental. Founded and scaled the embedded practice from 1 to 60+ engineers and €11.2M annual revenue.',
       skills: [
         'AUTOSAR Classic BSW (OS, RTE, Dcm, Dem, Com, NvM, E2E, EcuM, BswM, CanTp, SecOC, Csm)',
         'ISO 26262 functional safety to ASIL-D: MPU partitioning, E2E, watchdog stack, mixed-ASIL isolation',
@@ -364,7 +362,7 @@ export const content: PortfolioContent = {
           period: '2020 – 2024',
           role: 'BSW Architect & Technical Leader (team up to 14)',
           summary:
-            'Owned end-to-end AUTOSAR BSW and middleware on a 6-core ASIL-D ECU (AURIX TC399XE) — the first ZF ECU combining gearbox and inverter control on a single platform, shipped in the Mercedes-Benz hybrid CLA.',
+            "Built AUTOSAR BSW from scratch across 6 ASIL-D TriCore cores for ZF's first combined gearbox-inverter ECU; architected deterministic 6-core time-sync (sub-millisecond cross-core latency); deployed in the Mercedes-Benz hybrid CLA; led up to 14 engineers.",
           highlights: [
             'Built the full AUTOSAR BSW from scratch across 6 TriCore cores, then engineered custom scheduling middleware with synchronized schedule tables on the vehicle CAN-FD time base — sub-millisecond signal latency across all six cores.',
             'Designed mixed-ASIL safety partitioning (QM / Mixed / ASIL-D) with MPU isolation, E2E protection, watchdog stack and HSM integration; patched the Vector AUTOSAR OS in assembly to fix context-switch bit corruption on a real-time core.',
@@ -575,10 +573,9 @@ export const content: PortfolioContent = {
       label: 'AI Tooling & Personal',
       icon: 'Terminal',
       accent: 'domain-ai',
-      tagline:
-        'Human-architected, AI-accelerated: tools that replace five-figure vendor licenses and orchestrate six AI models at once.',
+      tagline: 'Production tools that cut five-figure licensing costs and orchestrate six AI models.',
       summary:
-        'Production-grade software built outside the day job with a human-architected, AI-accelerated method — I own system design and direct AI agents to implement under supervision. Projects span multi-agent orchestration, internal desktop tooling that displaces expensive vendor licenses, and full-stack web apps validated by hundreds of automated tests.',
+        'Built and shipped multi-agent orchestration (PowerSpawn), desktop tooling that eliminates costly vendor licenses (Radeau, SIL-Twin, ARXMLExplorer), and full-stack web apps validated by hundreds of automated tests.',
       skills: [
         'Multi-agent AI orchestration (MCP; Claude, Codex, Copilot, Grok, Gemini, Mistral)',
         'Python',
