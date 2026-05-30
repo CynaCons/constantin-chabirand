@@ -16,7 +16,7 @@ export default function CurrentSection({ items }: { items: CurrentItem[] }) {
         <span className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-green">
           Active
         </span>
-        <h2 className="font-display text-sm font-semibold text-primary">
+        <h2 className="font-display text-base font-semibold text-primary">
           What I'm working on now
         </h2>
       </div>

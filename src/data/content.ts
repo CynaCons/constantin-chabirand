@@ -18,7 +18,7 @@ export const content: PortfolioContent = {
     bio: "French embedded systems engineer in Munich with 9 years building and shipping production firmware across three domains: safety-critical automotive (AUTOSAR Classic, ISO 26262 ASIL-D), space-grade free-space optical communications, and AI-augmented tooling. I've delivered firmware on complex multi-core SoCs (Infineon AURIX, ARM Cortex-R52, TI TDA4VM) for OEMs including Mercedes-Benz, Volkswagen, BMW, Tesla and Continental, and currently develop embedded control software for laser-communication terminals at Mynaric (now part of Rocket Lab). Alongside firmware delivery I founded and scaled an embedded engineering practice from 1 to 60+ engineers, and build production tools with a human-architected, AI-accelerated method.",
     location: 'Munich, Germany',
     availability:
-      'Open to US relocation — H-1B or J-1 (Research Scholar / Expert), sponsor-ready via Cultural Vistas.',
+      'Happily based in Munich, EU — and open to US relocation: H-1B or J-1 (Research Scholar / Expert), sponsor-ready via Cultural Vistas.',
     languages: [
       'French (native)',
       'English (fluent — TOEIC 960)',
@@ -67,6 +67,170 @@ export const content: PortfolioContent = {
     },
   ],
 
+  leadership: {
+    title: 'The Department Backbone',
+    tagline:
+      "At T&S I didn't just deliver projects — I built and ran the practice that delivered them, and was the engineer customers asked for by name.",
+    metrics: ['1 → 60+ engineers', '€11.2M revenue (2023)', '3 offices: Stuttgart · Lyon · Toulouse'],
+    bullets: [
+      'Won the work — wrote the technical-commercial offers, answered hundreds of RFQs, and delivered 50+ presentations to OEMs and Tier 1s across Europe, the US, Israel and Korea.',
+      'Founded the AUTOSAR Academy (internal onboarding + a paid external training service) and ran workshops and trainings across the org.',
+      'Built the operating backbone from scratch: Jira, Bitbucket, a OneNote knowledge base, team SharePoints, a hardware inventory system, and remote control/actuation of all embedded hardware, devices and licenses.',
+      'Created an internal "AUTOSAR Platform" of reusable reference implementations to accelerate delivery and strengthen bids.',
+      'Owned program management — planning, coordination and a great deal of customer reporting: the spine the department relied on.',
+    ],
+  },
+
+  innovations: [
+    {
+      title: 'Natural-language control of an optical test bench',
+      blurb:
+        'An MCP tool that lets engineers drive the Pegasus bench by voice or text — "set the amplifier on device A to high output, then read the photodiodes" — and the agent actuates the hardware and reads back the instruments.',
+      year: '2026',
+      accent: 'domain-ai',
+    },
+    {
+      title: 'Collapsed CLS demodulation pipeline on a microcontroller',
+      blurb:
+        'Reduced a band-pass → mixer → low-pass demod chain to a single pre-computed coefficient set via Constrained Least Squares + Cholesky solving, so a tight ISR demodulates in one minimal-compute loop — hand-optimised at the assembly level (AI-assisted), beating stock CMSIS-DSP.',
+      year: '2026',
+      accent: 'domain-space',
+    },
+    {
+      title: 'Single-file interactive test reports',
+      blurb:
+        'A full interactive app plus its entire dataset inlined into one portable HTML file via the Vite single-file plugin — shareable, offline, zero server. Now a standard reporting format on the team.',
+      year: '2025',
+      accent: 'domain-ai',
+    },
+    {
+      title: 'PowerSpawn — multi-agent orchestration',
+      blurb:
+        'Open-source MCP server coordinating six AI models (Claude, Codex, Copilot, Grok, Gemini, Mistral) on a shared blackboard with a custom Inter-Agent Context protocol.',
+      year: '2025',
+      accent: 'domain-ai',
+    },
+  ],
+
+  timeline: [
+    {
+      company: 'Mynaric · Lasercom',
+      period: '2025 — present',
+      accent: 'domain-space',
+      commits: [
+        {
+          label: 'Pegasus — ESA 1 Tbps optical link',
+          sublabel: 'superchannels · up to 400G · full SW re-architecture',
+          domain: 'space',
+          projectId: 'esa-pegasus',
+        },
+        {
+          label: 'DARPA Space-BACN terminal firmware',
+          sublabel: 'polarization · DDS pilot tones · CLS demod',
+          domain: 'space',
+          projectId: 'space-bacn',
+        },
+        {
+          label: 'Production optical calibration tooling',
+          sublabel: 'AI-built, per-device characterization',
+          domain: 'space',
+          projectId: 'optical-calibration',
+        },
+        {
+          label: 'Radeau — in-house CANoe / CANape',
+          sublabel: 'Rust + Tauri, deployed on the line',
+          domain: 'ai',
+          projectId: 'radeau',
+        },
+      ],
+    },
+    {
+      company: 'T&S Engineering · Automotive',
+      period: '2017 — 2025',
+      accent: 'domain-auto',
+      collapseAfter: 4,
+      commits: [
+        {
+          label: 'AUTOSAR Practice — founded & led',
+          sublabel: '1→60 engineers · €11.2M · Academy',
+          domain: 'auto',
+          projectId: 'autosar-practice',
+        },
+        {
+          label: 'Hybrid powertrain ECU (eDCT) — Mercedes CLA',
+          sublabel: '6-core ASIL-D · client ZF',
+          domain: 'auto',
+          projectId: 'edct',
+        },
+        {
+          label: 'Battery Management ECU — Volkswagen',
+          sublabel: 'ARMv8-R · 70% faster validation',
+          domain: 'auto',
+          projectId: 'bms',
+        },
+        {
+          label: 'Functional-safety consulting',
+          sublabel: 'fail-operational EPS · Volvo / Forvia',
+          domain: 'auto',
+          projectId: 'safety-consulting',
+        },
+        {
+          label: 'Adaptive AUTOSAR — Vector Informatik',
+          sublabel: 'C++17 · Yocto Linux',
+          domain: 'auto',
+          projectId: 'adaptive-autosar',
+        },
+        {
+          label: 'LiDAR ECU — GMSL3 migration',
+          sublabel: 'TI TDA4VM · 12 Gbps',
+          domain: 'auto',
+          projectId: 'lidar-gmsl3',
+        },
+        {
+          label: 'Ultrasonic sensor ECU — Tesla',
+          sublabel: 'bare-metal Cortex-M0 · DSI3',
+          domain: 'auto',
+          projectId: 'uss-tesla',
+        },
+        {
+          label: 'On-board charger ECU — Continental',
+          sublabel: 'ISO-15118 · first PHY bring-up',
+          domain: 'auto',
+          projectId: 'obc-continental',
+        },
+        {
+          label: 'Vector integration packages — BMW (22+ ECUs)',
+          sublabel: '5 MCU families',
+          domain: 'auto',
+          projectId: 'bmw-eip',
+        },
+      ],
+    },
+    {
+      company: 'Personal · Open Source',
+      period: '2025 — present',
+      accent: 'domain-ai',
+      collapseAfter: 3,
+      commits: [
+        { label: 'PowerSpawn — multi-agent MCP orchestration', domain: 'ai', projectId: 'powerspawn' },
+        { label: 'PowerTimeline — versioned timeline editor', domain: 'ai', projectId: 'powertimeline' },
+        { label: 'ARXMLExplorer — AUTOSAR XML editor', domain: 'ai', projectId: 'arxmlexplorer' },
+        { label: 'FinOracle — on-device finance ML', domain: 'ai', projectId: 'finoracle' },
+        { label: 'STM32 peripherals exploration', domain: 'ai', projectId: 'stm32-explore' },
+      ],
+    },
+    {
+      company: 'Foundations',
+      period: '2016 — 2017',
+      accent: 'border-active',
+      commits: [
+        { label: 'Embedded SW trainee — Bosch', sublabel: 'AUTOSAR infotainment migration (end-customer GM)' },
+        { label: 'IoT internship — NTUST, Taipei', sublabel: 'LoRa on STM32F4' },
+        { label: 'IoT / BLE project lead — ESEO', sublabel: '8-person team · Raspberry Pi · Yocto' },
+      ],
+    },
+  ],
+
   domains: [
     /* ================= SPACE-TECH / LASERCOM ================= */
     {
@@ -101,38 +265,52 @@ export const content: PortfolioContent = {
           summary:
             "Sole embedded firmware engineer on DARPA's Space-BACN program — an effort to enable interoperable optical links between commercial and government LEO satellite constellations. Joined with no prior lasercom background and delivered the optical control subsystems end-to-end on an ARM Cortex-M7 (SAMV71): design, implementation, integration and terminal-level testing.",
           highlights: [
-            'Owned the optical control firmware end-to-end as the sole engineer — design through terminal-level test — having ramped on the lasercom domain from scratch in months.',
-            'Designed the polarization-control firmware for the optical link, achieving roughly 5× faster control-loop response than the prior approach.',
-            'Built a runtime-configurable pilot-tone generator with waveforms synthesized into RAM and streamed to the DAC via DMA — zero CPU overhead during tone output.',
-            'Implemented an on-MCU DSP demodulation pipeline (acquisition → mixing → filtering) with ARM CMSIS-DSP, reconfigurable at runtime without a firmware rebuild.',
-            'Cut MCU CPU load by ~25% by redesigning stepper-motor drive with DMA-fed lookup tables, freeing real-time budget for DSP and communications processing.',
-            'Developed terminal-level Pointing, Acquisition & Tracking (PAT) modes coordinating beam steering, fast-steering mirrors and optical-amplifier power states.',
+            'Ramped from zero lasercom background to sole firmware owner: started on the benchtop characterizing optical features (EDFAs, fibers, beam control), then moved onto the laser terminal once produced — learning the optical-head tooling from test operators, then operating independently.',
+            'Brought up polarization control and sensing, achieving stable left- and right-hand circular polarization on the link.',
+            'Implemented embedded Direct Digital Synthesis (DDS) for pilot-tone generation — clean, accurate tones across a wide frequency range at negligible CPU cost.',
+            'Built the demodulation chain (band-pass → mixer → low-pass) the hard way: designed the filters with Constrained Least Squares + Cholesky solving, then collapsed the whole pipeline into a single pre-computed coefficient set so a tight ISR demodulates in one minimal-compute loop — hand-optimised at the assembly level (AI-assisted), outperforming stock CMSIS-DSP.',
+            'Controlled EDFA power, divergent-beam and optical-filter subsystems; developed Pointing, Acquisition & Tracking (PAT) behaviour at terminal level.',
+            'Operated two optical terminals to establish links on the test bed, and ran the bench against Coherent 100G source modems shooting SDA 4.0 Burst-Mode waveforms — tuning the terminal against OSNR, BER and polarization-constellation metrics.',
+            'Built the supporting control app (React + Vite front end, Python back end) for AI-driven test automation, generating single-file interactive HTML test reports.',
           ],
           tech: [
             'Embedded C',
             'ARM Cortex-M7 (SAMV71)',
-            'ARM CMSIS-DSP',
+            'DSP / FIR',
+            'Constrained Least Squares + Cholesky',
+            'DDS',
             'DMA',
-            'Bare-metal',
-            'Free-space optics',
-            'Real-time control',
+            'Polarization control',
+            'EDFA',
+            'SDA 4.0 Burst Mode',
+            'Coherent 100G',
+            'React + Python',
           ],
           links: [],
         },
         {
-          id: 'esa-terminal',
-          title: 'ESA Optical Terminal — Embedded Firmware',
+          id: 'esa-pegasus',
+          title: 'Pegasus — ESA 1 Tbps Optical Terminal',
           org: 'Mynaric Lasercom (now part of Rocket Lab)',
           period: '2026 – present',
-          role: 'Senior Embedded Software Engineer',
+          role: 'Senior Embedded Software Engineer — software architecture',
           summary:
-            'Ongoing embedded firmware contribution to a European Space Agency optical-terminal program, carrying the real-time optical-control and DSP firmware patterns from the prior program into an ESA mission context.',
+            "Embedded software on Mynaric's ESA Pegasus program (ESA ScyLight / HydRON) — a large optical test bed that simulates light travelling through the “hops” of a satellite constellation, targeting 1 Tbps with wavelength superchannels. I re-architected the control-software stack.",
           highlights: [
-            'Applying the real-time optical-control and DSP firmware patterns established on the prior program to ESA mission requirements.',
-            'Working in a cleanroom-grade, ESD-regulated environment handling space-rated, radiation-tolerant hardware.',
-            'Cross-functional integration with optics, mechanics and electronics teams on terminal bring-up and production support.',
+            'Drive the bench end-to-end: superchannels (many wavelengths in one beam), multiple laser types and modulation formats (e.g. 100G QPSK / DPSK) — reaching up to 400G in tests — across optical amplifiers, wavelength-selective switches and embedded controllers.',
+            'Re-architected the control stack: replaced an SSH-and-run-a-script workflow with daemons on the embedded devices speaking WebSocket + JSON-RPC to a control tool (React front end, Python FastAPI back end).',
+            'Built an MCP layer for natural-language control of the bench — engineers drive the hardware by voice or text and the agent actuates devices and reads back instruments (photodiodes, power meters).',
           ],
-          tech: ['Embedded C', 'ARM Cortex-M7', 'Optical control', 'Real-time DSP', 'Space-rated HW'],
+          tech: [
+            'React',
+            'Python (FastAPI)',
+            'WebSocket',
+            'JSON-RPC',
+            'MCP',
+            'Superchannels / WSS',
+            'Raspberry Pi',
+            'Optical amplifiers',
+          ],
           links: [],
         },
         {

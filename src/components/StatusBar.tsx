@@ -6,7 +6,7 @@ export default function StatusBar({ projectCount }: { projectCount: number }) {
       </span>
       <span className="flex items-center gap-4">
         <span>{projectCount} PROJECTS</span>
-        <span className="text-amber">⚡ OPEN TO US RELOCATION · H-1B / J-1</span>
+        <span className="text-amber">⚡ MUNICH, EU · OPEN TO US (H-1B / J-1)</span>
       </span>
     </footer>
   )
