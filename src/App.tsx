@@ -1,94 +1,105 @@
-import { useEffect, useMemo, useState } from 'react'
 import { content } from './data/content'
 import { useHashState } from './hooks/useHashState'
-import TopBar from './components/TopBar'
-import StatusBar from './components/StatusBar'
-import { SubsystemRail, BottomTabs } from './components/SubsystemNav'
-import Overview from './components/Overview'
-import ProjectGrid from './components/ProjectGrid'
-import MissionLogDrawer from './components/MissionLogDrawer'
-import CommandPalette from './components/CommandPalette'
+import Masthead from './components/Masthead'
+import NavRail from './components/NavRail'
+import CurrentStrip from './components/CurrentStrip'
+import DomainSection from './components/DomainSection'
+import LeadershipBand from './components/LeadershipBand'
+import InnovationsList from './components/InnovationsList'
+import Footer from './components/Footer'
+import ProjectModal from './components/ProjectModal'
+
+const META: Record<string, { company: string; period: string; sectionId: string }> = {
+  auto: { company: 'T&S Engineering', period: '2017 — 2025', sectionId: 'sec-auto' },
+  space: { company: 'Mynaric Lasercom', period: '2025 — present', sectionId: 'sec-space' },
+  ai: { company: 'Independent', period: '2025 — present', sectionId: 'sec-ai' },
+}
 
 export default function App() {
+  const { profile, domains, current, leadership, innovations } = content
   const { domain, project, go } = useHashState()
-  const [paletteOpen, setPaletteOpen] = useState(false)
-  const { profile, domains, current, leadership, innovations, timeline } = content
 
-  const projectCount = useMemo(
-    () => domains.reduce((n, d) => n + d.projects.length, 0),
-    [domains],
-  )
+  const byKey = Object.fromEntries(domains.map((d) => [d.key, d]))
+  const auto = byKey['auto']
+  const space = byKey['space']
+  const ai = byKey['ai']
 
-  const activeDomain = domains.find((d) => d.key === domain) ?? null
-  const domainKey = activeDomain?.key ?? null
-
-  const projectIndex = activeDomain
-    ? activeDomain.projects.findIndex((p) => p.id === project)
-    : -1
-  const activeProject = projectIndex >= 0 ? activeDomain!.projects[projectIndex] : null
-
-  // ⌘K / Ctrl+K toggles the palette globally.
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault()
-        setPaletteOpen((o) => !o)
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  const activeDomain = domains.find((d) => d.key === domain)
+  const activeProject = activeDomain?.projects.find((p) => p.id === project)
 
   return (
     <div className="min-h-screen">
       <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[70] focus:rounded focus:bg-elevated focus:px-3 focus:py-2 focus:text-sm"
+        href="#top"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[70] focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:text-sm"
       >
         Skip to content
       </a>
 
-      <TopBar onHome={() => go(null)} onOpenPalette={() => setPaletteOpen(true)} />
+      <div className="mx-auto flex max-w-[940px] gap-12 px-5 py-12 sm:px-8 lg:py-20">
+        <NavRail />
+        <main className="mx-auto w-full max-w-[680px]">
+          <Masthead profile={profile} />
 
-      <SubsystemRail domains={domains} active={domainKey} onSelect={(k) => go(k)} />
-      <BottomTabs domains={domains} active={domainKey} onSelect={(k) => go(k)} />
+          <div className="mt-12">
+            <CurrentStrip items={current} />
+          </div>
 
-      <main id="main" className="px-4 pb-24 pt-16 sm:px-6 lg:pb-12 lg:pl-[284px] lg:pr-8">
-        {activeDomain ? (
-          <ProjectGrid domain={activeDomain} onOpenProject={(pid) => go(activeDomain.key, pid)} />
-        ) : (
-          <Overview
-            profile={profile}
-            domains={domains}
-            current={current}
-            timeline={timeline}
-            leadership={leadership}
-            innovations={innovations}
-            onSelect={(k) => go(k)}
-            onOpenProject={(d, p) => go(d, p)}
-          />
-        )}
-      </main>
+          {auto && (
+            <div className="mt-14">
+              <DomainSection
+                domain={auto}
+                company={META.auto.company}
+                period={META.auto.period}
+                sectionId={META.auto.sectionId}
+                onOpenProject={(pid) => go('auto', pid)}
+              />
+            </div>
+          )}
 
-      <StatusBar projectCount={projectCount} />
+          <div className="mt-12">
+            <LeadershipBand data={leadership} />
+          </div>
+
+          {space && (
+            <div className="mt-14">
+              <DomainSection
+                domain={space}
+                company={META.space.company}
+                period={META.space.period}
+                sectionId={META.space.sectionId}
+                onOpenProject={(pid) => go('space', pid)}
+              />
+            </div>
+          )}
+
+          {ai && (
+            <div className="mt-14">
+              <DomainSection
+                domain={ai}
+                company={META.ai.company}
+                period={META.ai.period}
+                sectionId={META.ai.sectionId}
+                onOpenProject={(pid) => go('ai', pid)}
+              />
+            </div>
+          )}
+
+          <div className="mt-14">
+            <InnovationsList items={innovations} />
+          </div>
+
+          <div className="mt-14">
+            <Footer profile={profile} domains={domains} />
+          </div>
+        </main>
+      </div>
 
       {activeProject && activeDomain && (
-        <MissionLogDrawer
+        <ProjectModal
           project={activeProject}
-          domain={activeDomain}
-          onClose={() => go(activeDomain.key)}
-          onPrev={() => go(activeDomain.key, activeDomain.projects[projectIndex - 1]?.id)}
-          onNext={() => go(activeDomain.key, activeDomain.projects[projectIndex + 1]?.id)}
-          hasPrev={projectIndex > 0}
-          hasNext={projectIndex < activeDomain.projects.length - 1}
-        />
-      )}
-
-      {paletteOpen && (
-        <CommandPalette
-          domains={domains}
-          onClose={() => setPaletteOpen(false)}
-          onNavigate={(d, p) => go(d, p ?? null)}
+          accent={`var(--color-${activeDomain.key})`}
+          onClose={() => go(null)}
         />
       )}
     </div>
