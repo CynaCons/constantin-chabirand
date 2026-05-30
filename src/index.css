@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Design tokens — "Mission Console" (registered with Tailwind v4
+   so utilities like bg-panel / text-primary / border-active work)
+   ============================================================ */
+@theme {
+  /* Surfaces (dark-mode first) */
+  --color-void: #080c10;
+  --color-panel: #0d1117;
+  --color-elevated: #131b24;
+  --color-overlay: #1a2535;
+  --color-statusbar: #0a0e13;
+
+  /* Borders */
+  --color-border-dim: #1e2d3d;
+  --color-border-active: #2a4a6b;
+
+  /* Text */
+  --color-primary: #e8f4fd;
+  --color-secondary: #93aec6;
+  --color-muted: #5a7790;
+
+  /* Accents */
+  --color-cyan: #00c8ff;
+  --color-green: #2be08b;
+  --color-amber: #ffb020;
+  --color-red: #ff5a5a;
+  --color-violet: #b69cff;
+
+  /* Domain tints */
+  --color-domain-space: #ffb020;
+  --color-domain-auto: #b69cff;
+  --color-domain-ai: #00c8ff;
+  --color-domain-bio: #2be08b;
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html {
+  background: var(--color-void);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-primary);
+  background-color: var(--color-void);
+  /* Drafting-board grid (grafted from Blueprint concept) — pure CSS, zero DOM */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 79px,
+      rgba(42, 74, 107, 0.16) 79px,
+      rgba(42, 74, 107, 0.16) 80px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 79px,
+      rgba(42, 74, 107, 0.16) 79px,
+      rgba(42, 74, 107, 0.16) 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(30, 45, 61, 0.1) 19px,
+      rgba(30, 45, 61, 0.1) 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 19px,
+      rgba(30, 45, 61, 0.1) 19px,
+      rgba(30, 45, 61, 0.1) 20px
+    );
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular numerals for all monospace data */
+.font-mono {
+  font-feature-settings: 'tnum' 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus visibility — never removed without replacement */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Status LED pulse */
+@keyframes led-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.led-pulse {
+  animation: led-pulse 2s ease-in-out infinite;
+}
+
+/* Cursor blink (command palette) */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Telemetry bar fill */
+.telemetry-fill {
+  transition: width 600ms ease-out;
+}
+
+/* Custom scrollbars */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border-dim);
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-active);
+}
+
+/* Reduced motion — collapse all timed motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
