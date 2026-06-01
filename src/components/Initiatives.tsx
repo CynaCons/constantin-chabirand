@@ -8,9 +8,27 @@ interface Initiative {
   description: string
   tech: string[]
   impact?: string
+  highlight?: boolean
 }
 
 const INITIATIVES: Initiative[] = [
+  {
+    id: 'spacebacn-control',
+    title: 'SpaceBACN terminal control & test-automation suite',
+    tagline: 'React + Python control app for the optical link test bed',
+    description:
+      'A large React + Python (Vite) application driving two optical terminals on the link test bed: run acquisition sequences, monitor PAT (pointing/acquisition/tracking) and SDA states, record full terminal telemetry, automate test campaigns, and produce reports.',
+    tech: ['React', 'Python', 'Vite', 'Test automation', 'Optical link test bed'],
+  },
+  {
+    id: 'dynamic-app-report',
+    title: 'Dynamic App-Report',
+    tagline: 'A new report format — data + a web app in one portable .HTML',
+    description:
+      'A new way to deliver test results. Instead of a static PDF, Excel sheet or Confluence page, the test-automation tools emit a single self-contained .HTML file with all the data embedded plus a built-in web app to replay and explore it — dynamic charts, zoom, drill-down. A report you interrogate, not just read. Introduced on SpaceBACN and Pegasus.',
+    tech: ['Single-file HTML', 'Embedded data', 'JS charting', 'Portable reports'],
+    highlight: true,
+  },
   {
     id: 'radeau',
     title: 'RadEAU',
@@ -19,6 +37,14 @@ const INITIATIVES: Initiative[] = [
       'A corporate replacement for Vector CANoe and CANape: CAN/CAN-FD trace analysis and ECU calibration including A2L support. Deployed on the production line. Built with React + Rust + Tauri.',
     tech: ['React', 'Rust', 'Tauri', 'CAN / CAN-FD', 'A2L / ASAM MCD-2 MC', 'JSON-RPC'],
     impact: '~$10k/user/yr in CANoe licensing saved',
+  },
+  {
+    id: 'arch-dbc-viz',
+    title: 'Architecture & CAN-bus visualizers',
+    tagline: 'Software architecture & .DBC rendered in AUTOSAR RTE conventions',
+    description:
+      'Visualization tools that render software architecture and CAN communication using AUTOSAR RTE visual conventions — components, sender/receiver ports and connectors — so system structure and bus traffic (.DBC) are readable at a glance.',
+    tech: ['AUTOSAR RTE', 'DBC / CAN', 'Architecture visualization'],
   },
   {
     id: 'sil-twin',
@@ -58,18 +84,29 @@ function InitiativeCard({ item, index }: { item: Initiative; index: number }) {
       transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.07 }}
       className="rounded border p-5"
       style={{
-        background: 'var(--color-surface)',
-        borderColor: 'var(--color-border)',
+        background: item.highlight ? 'var(--color-accent-light)' : 'var(--color-surface)',
+        borderColor: item.highlight ? 'var(--color-accent)' : 'var(--color-border)',
+        boxShadow: item.highlight ? '0 0 0 1px var(--color-accent)' : undefined,
       }}
     >
       {/* Header */}
       <div>
-        <h3 className="text-sm font-bold" style={{ color: 'var(--color-ink)' }}>
-          {item.title}
-        </h3>
+        <div className="flex items-center gap-2">
+          <h3 className="text-sm font-bold" style={{ color: 'var(--color-ink)' }}>
+            {item.title}
+          </h3>
+          {item.highlight && (
+            <span
+              className="rounded px-1.5 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.12em]"
+              style={{ color: '#0B1410', background: 'var(--color-accent)' }}
+            >
+              Innovation
+            </span>
+          )}
+        </div>
         <div
           className="mt-0.5 font-mono text-[0.63rem] uppercase tracking-[0.10em]"
-          style={{ color: 'var(--color-auto)', opacity: 0.85 }}
+          style={{ color: item.highlight ? 'var(--color-accent)' : 'var(--color-auto)', opacity: 0.85 }}
         >
           {item.tagline}
         </div>

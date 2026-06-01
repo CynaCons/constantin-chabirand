@@ -42,14 +42,13 @@ const OPEN_SOURCE_PROJECTS: ProjectCard[] = [
       { label: 'powertimeline.com', url: 'https://powertimeline.com' },
     ],
   },
-  // DRAFT (confirm wording with Constantin):
   {
     id: 'opent-a2l-forge',
     title: 'OpenT A2L Forge',
-    tagline: 'Open-source A2L (ASAM MCD-2 MC) calibration toolkit',
+    tagline: 'Populate an A2L straight from an .elf',
     description:
-      'Create, edit and validate A2L calibration-description files (ASAM MCD-2 MC) — the calibration and measurement metadata behind XCP and tools like Vector CANape.',
-    tech: ['A2L', 'ASAM MCD-2 MC', 'XCP', 'Calibration'],
+      'Generate and update A2L (ASAM MCD-2 MC) calibration files directly from an .elf — auto-extracting variables, structs, arrays, matrices and nested types into A2L symbols, so you keep your A2L in sync and start monitoring variables in seconds. Also create, edit and validate A2L.',
+    tech: ['.elf parsing', 'A2L / ASAM MCD-2 MC', 'XCP', 'Calibration'],
     links: [],
     highlight: true,
   },
