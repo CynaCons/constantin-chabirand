@@ -57,15 +57,33 @@ const TS_LEADERSHIP_CARD = {
 /* ── Education sub-items ── */
 const EDUCATION_ITEMS = [
   {
-    id: 'eseo-degree',
-    title: "Diplôme d'Ingénieur (MSc equiv.) — Embedded Systems",
-    tagline: 'ESEO, Angers, France · 2012–2017',
+    id: 'ntust-internship',
+    title: 'Technical Internship — NTUST, Taipei',
+    tagline: 'National Taiwan University of Science & Technology · 2016',
     bullets: [
-      'Led an 8-person IoT/BLE final-year project (Raspberry Pi, Android, Yocto Linux, STMicroelectronics BLE module).',
-      "IoT internship at NTUST, Taipei (2016) — LoRa mesh on STM32F4.",
-      'Embedded SW trainee at Bosch Stuttgart (2017) — AUTOSAR infotainment migration, end-customer GM.',
+      'Built a LoRa-based smart-building prototype: connected-sensor firmware on STM32F4, LoRa radio drivers, and a sensor-management GUI — early hands-on with long-range RF in an international R&D lab.',
     ],
-    tech: ['Embedded C', 'STM32', 'LoRa', 'AUTOSAR', 'Yocto Linux', 'BLE'],
+    tech: ['STM32F4', 'LoRa', 'Embedded C', 'C#', 'RF'],
+    links: [] as Array<{ label: string; url: string }>,
+  },
+  {
+    id: 'eseo-iot-ble',
+    title: 'IoT Capstone for STMicroelectronics — BLE / BlueZ / Yocto',
+    tagline: 'ESEO · industrial-monitoring IoT · led an 8-student team',
+    bullets: [
+      'Led an 8-student team building an end-to-end industrial-monitoring IoT system: STM32 BLE sensor nodes → an embedded-Linux coordinator running BlueZ5 → TCP/IP → an Android app. Built on Yocto / embedded Linux; owned firmware, BLE-stack integration, and project management.',
+    ],
+    tech: ['STM32', 'BLE', 'BlueZ5', 'Yocto / Embedded Linux', 'Android', 'TCP/IP'],
+    links: [] as Array<{ label: string; url: string }>,
+  },
+  {
+    id: 'bosch-internship',
+    title: 'Embedded SW Trainee — Bosch, Stuttgart',
+    tagline: 'AUTOSAR infotainment migration · end-customer GM · 2017',
+    bullets: [
+      'AUTOSAR infotainment software migration across Renesas microcontrollers — first hands-on with production AUTOSAR, the start of the automotive chapter.',
+    ],
+    tech: ['AUTOSAR', 'Renesas RH850 / V850', 'Embedded C'],
     links: [] as Array<{ label: string; url: string }>,
   },
 ]
@@ -160,6 +178,7 @@ export function Timeline() {
             period="2012 — 2017"
             company="ESEO Angers — Diplôme d'Ingénieur"
             role="Embedded Systems · International Internships"
+            summary="Five-year French engineering degree (MSc-equivalent) specialized in embedded systems — with an international internship in Taipei and hands-on IoT/BLE projects."
             accentColor="var(--color-edu)"
             subCards={EDUCATION_ITEMS}
             defaultExpanded={false}

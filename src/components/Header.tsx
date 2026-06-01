@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 const HEADLINE =
   'Embedded Software Engineer & Architect — real-time firmware, DSP & safety-critical systems, now hands-on in coherent optical communications.'
 
+const FOCUS_TAGS = ['Space-Tech', 'Optical Comms', 'Real-Time Embedded', 'Safety-Critical', 'AI-Augmented']
+
 const SUMMARY_BULLETS = [
   'Embedded Software Engineer & Architect — 9 years shipping production firmware: real-time control, DSP, multicore ARM, bare-metal, functional safety to ASIL-D. ECUs in production vehicles for Mercedes-Benz, VW, BMW, Tesla, Continental.',
   'Built and led, not just coded — founded and scaled an embedded engineering practice from 1 to 60+ engineers (€11.2M annual revenue); founded the AUTOSAR Academy; 50+ technical-commercial presentations to OEMs and Tier-1s.',
@@ -24,6 +26,23 @@ function fadeUp(delay: number) {
 export function Header() {
   return (
     <header id="summary" className="pb-8 scroll-mt-8">
+      {/* Focus / domain tags */}
+      <motion.div {...fadeUp(0)} className="mb-4 flex flex-wrap gap-2">
+        {FOCUS_TAGS.map((t) => (
+          <span
+            key={t}
+            className="rounded px-2 py-1 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.12em]"
+            style={{
+              color: 'var(--color-accent)',
+              background: 'rgba(19,194,150,0.10)',
+              border: '1px solid rgba(19,194,150,0.30)',
+            }}
+          >
+            {t}
+          </span>
+        ))}
+      </motion.div>
+
       {/* Headline */}
       <motion.p
         {...fadeUp(0)}
