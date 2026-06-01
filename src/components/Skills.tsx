@@ -120,7 +120,7 @@ function SkillGroupCard({ group, index }: { group: SkillGroup; index: number }) 
 
 export function Skills() {
   return (
-    <section aria-label="Technical skills" className="mt-12 border-t pt-10" style={{ borderColor: 'var(--color-rule)' }}>
+    <section id="skills" aria-label="Technical skills" className="mt-12 border-t pt-10 scroll-mt-8" style={{ borderColor: 'var(--color-rule)' }}>
       <h2
         className="mb-6 font-mono text-[0.65rem] uppercase tracking-[0.16em]"
         style={{ color: 'var(--color-accent)', opacity: 0.7 }}

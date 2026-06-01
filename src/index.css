@@ -1,35 +1,36 @@
 @import 'tailwindcss';
 
 /* ============================================================
-   "Optical Instrument / Mission Console"
-   Dark theme — deep neutral, cyan→teal accent, mono readouts
+   "Clean Instrument" — Light, high-contrast professional theme
+   Warm near-white bg, near-black body text, deep teal accent
    ============================================================ */
 @theme {
   /* Surfaces */
-  --color-bg:       #0d0f12; /* dominant — near-black, slight blue-black */
-  --color-surface:  #13161b; /* card / elevated surface */
-  --color-inset:    #1a1e26; /* inset / tag background */
-  --color-overlay:  #1e232d; /* modal backdrop tint */
+  --color-bg:       #FAFAF7; /* dominant — warm near-white */
+  --color-surface:  #FFFFFF; /* card / elevated surface */
+  --color-inset:    #F4F4F0; /* inset / tag background */
+  --color-overlay:  #EEF0EC; /* subtle tinted block */
 
   /* Ink */
-  --color-ink:      #e8edf5; /* primary text */
-  --color-muted:    #8a95a8; /* secondary text */
-  --color-faint:    #4a5568; /* decorative / dividers */
+  --color-ink:      #1A1A1A; /* primary text — near-black, WCAG AA+ */
+  --color-muted:    #4A5568; /* secondary text */
+  --color-faint:    #9AA3AE; /* decorative / dividers */
 
   /* Structure */
-  --color-rule:     #252b38; /* hairlines */
-  --color-border:   #2d3444; /* card borders */
+  --color-rule:     #E2E5E0; /* hairlines */
+  --color-border:   #D4D8D2; /* card borders */
 
-  /* Accent — laser cyan/teal */
-  --color-accent:    #22d3ee; /* cyan-400 — primary interactive */
-  --color-accent-dim: #0e7490; /* cyan-700 — muted accent / borders */
-  --color-accent-glow: rgba(34, 211, 238, 0.15); /* glow halo */
+  /* Accent — deep teal */
+  --color-accent:    #0E7C7B; /* primary interactive — deep teal */
+  --color-accent-dim: #0A5C5B; /* muted accent */
+  --color-accent-glow: rgba(14, 124, 123, 0.10); /* soft halo */
+  --color-accent-light: #E6F4F4; /* very light teal tint */
 
   /* Domain markers */
-  --color-space:    #22d3ee; /* cyan — optical / space */
-  --color-auto:     #818cf8; /* indigo — automotive */
-  --color-ai:       #34d399; /* emerald — AI tooling */
-  --color-edu:      #94a3b8; /* slate — education/foundations */
+  --color-space:    #0E7C7B; /* teal — optical / space */
+  --color-auto:     #4C6EAD; /* blue-indigo — automotive */
+  --color-ai:       #2B7A4B; /* forest green — AI tooling */
+  --color-edu:      #6B7280; /* slate — education/foundations */
 
   /* Fonts */
   --font-display: 'Inter', 'DM Sans', system-ui, sans-serif;
@@ -39,7 +40,7 @@
 
 html {
   background: var(--color-bg);
-  color-scheme: dark;
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 
@@ -86,7 +87,7 @@ body {
   border-color: var(--color-accent-dim);
 }
 
-/* ---- Timeline dot glow ---- */
+/* ---- Timeline dot pulse (active/current role) ---- */
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 0 0 var(--color-accent-glow); }
   50%       { box-shadow: 0 0 0 6px var(--color-accent-glow); }
@@ -138,8 +139,20 @@ body {
 
 /* ---- Selection ---- */
 ::selection {
-  background: var(--color-accent-glow);
+  background: var(--color-accent-light);
   color: var(--color-ink);
+}
+
+/* ---- Sidebar sticky behavior ---- */
+.sidebar-aside {
+  /* on desktop it will be made sticky by Tailwind classes in JSX */
+}
+
+/* ---- Light card / surface lift ---- */
+.card-light {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
 }
 
 @media (prefers-reduced-motion: reduce) {

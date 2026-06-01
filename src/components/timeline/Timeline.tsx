@@ -88,7 +88,7 @@ export function Timeline() {
   const aiSubCards = ai?.projects.map(projectToSubCard) ?? []
 
   return (
-    <section aria-label="Career timeline" className="mt-12">
+    <section id="timeline" aria-label="Career timeline" className="mt-12 scroll-mt-8">
       <h2
         className="mb-8 font-mono text-[0.65rem] uppercase tracking-[0.16em]"
         style={{ color: 'var(--color-accent)', opacity: 0.7 }}
