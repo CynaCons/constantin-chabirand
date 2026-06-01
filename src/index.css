@@ -1,38 +1,46 @@
 @import 'tailwindcss';
 
 /* ============================================================
-   "Clean Instrument" — Light, high-contrast professional theme
-   Warm near-white bg, near-black body text, deep teal accent
+   "Clean Instrument" — Light content, dark sidebar, industrial feel
+   Warm near-white content bg, near-black body text, electric teal accent
    ============================================================ */
 @theme {
-  /* Surfaces */
+  /* ── Main content surfaces ── */
   --color-bg:       #FAFAF7; /* dominant — warm near-white */
   --color-surface:  #FFFFFF; /* card / elevated surface */
   --color-inset:    #F4F4F0; /* inset / tag background */
   --color-overlay:  #EEF0EC; /* subtle tinted block */
 
-  /* Ink */
+  /* ── Ink ── */
   --color-ink:      #1A1A1A; /* primary text — near-black, WCAG AA+ */
   --color-muted:    #4A5568; /* secondary text */
   --color-faint:    #9AA3AE; /* decorative / dividers */
 
-  /* Structure */
+  /* ── Structure ── */
   --color-rule:     #E2E5E0; /* hairlines */
   --color-border:   #D4D8D2; /* card borders */
 
-  /* Accent — deep teal */
-  --color-accent:    #0E7C7B; /* primary interactive — deep teal */
-  --color-accent-dim: #0A5C5B; /* muted accent */
-  --color-accent-glow: rgba(14, 124, 123, 0.10); /* soft halo */
-  --color-accent-light: #E6F4F4; /* very light teal tint */
+  /* ── Accent — electric teal ── */
+  --color-accent:       #13C296; /* primary interactive */
+  --color-accent-dim:   #0E9A78; /* muted accent */
+  --color-accent-glow:  rgba(19, 194, 150, 0.15); /* soft halo */
+  --color-accent-light: #E6FAF5; /* very light teal tint */
 
-  /* Domain markers */
-  --color-space:    #0E7C7B; /* teal — optical / space */
+  /* ── Sidebar surfaces (dark) ── */
+  --color-sidebar-bg:      #15171A; /* deep charcoal */
+  --color-sidebar-surface: #1E2126; /* slightly elevated */
+  --color-sidebar-border:  #2C3038; /* hairline on dark */
+  --color-sidebar-ink:     #E8EAED; /* light text */
+  --color-sidebar-muted:   #9AA3AE; /* secondary on dark */
+  --color-sidebar-faint:   #4A5568; /* faint on dark */
+
+  /* ── Domain markers ── */
+  --color-space:    #13C296; /* teal — optical / space */
   --color-auto:     #4C6EAD; /* blue-indigo — automotive */
   --color-ai:       #2B7A4B; /* forest green — AI tooling */
   --color-edu:      #6B7280; /* slate — education/foundations */
 
-  /* Fonts */
+  /* ── Fonts ── */
   --font-display: 'Inter', 'DM Sans', system-ui, sans-serif;
   --font-body:    'Inter', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', 'IBM Plex Mono', 'Fira Mono', Consolas, monospace;
@@ -67,7 +75,7 @@ body {
   border-radius: 2px;
 }
 
-/* ---- Tech tag chip ---- */
+/* ---- Light content area tech-tag chip ---- */
 .tech-tag {
   display: inline-block;
   padding: 0.15em 0.55em;
@@ -85,6 +93,27 @@ body {
 .tech-tag:hover {
   color: var(--color-accent);
   border-color: var(--color-accent-dim);
+}
+
+/* ---- Dark "component" chip — skills section ---- */
+.skill-chip {
+  display: inline-block;
+  padding: 0.25em 0.7em;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #C8CDD5;
+  background: #1E2126;
+  border: 1px solid #2C3038;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.skill-chip:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: rgba(19, 194, 150, 0.07);
 }
 
 /* ---- Timeline dot pulse (active/current role) ---- */
@@ -153,6 +182,17 @@ body {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 6px;
+}
+
+/* ---- PCB-trace registration tick (decorative) ---- */
+.pcb-tick {
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.35;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 @media (prefers-reduced-motion: reduce) {

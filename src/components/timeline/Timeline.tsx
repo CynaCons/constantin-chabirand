@@ -3,7 +3,7 @@ import { useInView } from '../../hooks/useInView'
 import { TimelineNode, projectToSubCard } from './TimelineNode'
 import { content } from '../../data/content'
 
-/* Hand-crafted re-narrated content for Mynaric node (optical-interconnect framing) */
+/* ── Mynaric re-narrated sub-cards ──────────────────────── */
 const ESA_PEGASUS_CARD = {
   id: 'esa-pegasus-renarrated',
   title: 'ESA Pegasus — Coherent DWDM Optical-Transport Systems',
@@ -35,7 +35,26 @@ const SPACE_BACN_CARD = {
 const MYNARIC_SUMMARY =
   'Sole embedded firmware engineer on DARPA Space-BACN and ESA Pegasus at Mynaric Lasercom (now part of Rocket Lab). Delivered the optical-control stack from zero lasercom background in ~6 months; now extends to a 1 Tbps ESA DWDM testbed.'
 
-/* Education sub-items */
+/* ── T&S leadership block ── */
+const TS_LEADERSHIP_CARD = {
+  id: 'ts-leadership',
+  title: 'AUTOSAR Practice Leader — Founded & Scaled',
+  tagline: 'T&S Engineering, Stuttgart · 2017–2025',
+  bullets: [
+    'Founded and scaled the AUTOSAR practice from 1 to 60+ engineers across Stuttgart, Lyon and Toulouse — the first and most successful practice of its kind at T&S.',
+    '€11.2M annual revenue (2023) via a service-supplier model (full project ownership, not staff aug); 50+ technical-commercial presentations to OEMs and Tier 1s across Europe, the US, Israel and Korea.',
+    'Founded the T&S AUTOSAR Academy (2021): internal onboarding plus a paid external training service; 26 engineers trained; adopted as the company-wide standard.',
+    'Built the AUTOSAR Platform — reusable reference implementations to accelerate delivery and strengthen bids.',
+    'Set up engineering backbone from zero: Jira, Bitbucket, knowledge base, hardware inventory, remote device/license access — across three cities.',
+    'Among the first engineering-service providers to earn the Vector CEP for BSW Integration (2021).',
+  ],
+  tech: ['AUTOSAR Classic / Adaptive', 'Vector MICROSAR', 'ISO 26262', 'ISO 21434', 'ASPICE L2', 'Vector CEP'],
+  links: [
+    { label: 'T&S AUTOSAR Academy (press)', url: 'https://www.technologyandstrategy.com/news/discover-the-t-s-autosar-academy' },
+  ],
+}
+
+/* ── Education sub-items ── */
 const EDUCATION_ITEMS = [
   {
     id: 'eseo-degree',
@@ -51,21 +70,21 @@ const EDUCATION_ITEMS = [
   },
 ]
 
-/* Farming node — short and characterful */
+/* ── Farming node ── */
 const FARMING_ITEMS = [
   {
     id: 'farming',
-    title: '10 years operating farm machinery — rural France',
+    title: 'Seasonal farm worker — rural France',
     tagline: '~2005–2015',
     bullets: [
-      'Mechanical discipline and systems thinking grounded in operating and troubleshooting agricultural machinery from adolescence.',
+      'Seasonal farm worker through my school years — weekends and holidays, April to end of September. Started very young driving tractors, then on the summer melon harvest (also tomatoes, potatoes, peppers). In the later years I led a small crew, running the grading/calibration line, sale preparation, and weekend deliveries.',
     ],
     tech: [] as string[],
     links: [] as Array<{ label: string; url: string }>,
   },
 ]
 
-function NodeWrapper({ children, delay }: { children: React.ReactNode; delay: number }) {
+function NodeWrapper({ children, delay, isLast }: { children: React.ReactNode; delay: number; isLast?: boolean }) {
   const { ref, inView } = useInView<HTMLDivElement>()
   return (
     <motion.div
@@ -73,6 +92,7 @@ function NodeWrapper({ children, delay }: { children: React.ReactNode; delay: nu
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.45, ease: 'easeOut', delay: delay * 0.06 }}
+      data-last={isLast ? 'true' : undefined}
     >
       {children}
     </motion.div>
@@ -82,21 +102,28 @@ function NodeWrapper({ children, delay }: { children: React.ReactNode; delay: nu
 export function Timeline() {
   const { domains } = content
   const auto = domains.find((d) => d.key === 'auto')
-  const ai = domains.find((d) => d.key === 'ai')
 
-  const autoSubCards = auto?.projects.map(projectToSubCard) ?? []
-  const aiSubCards = ai?.projects.map(projectToSubCard) ?? []
+  // T&S sub-cards: leadership FIRST, then project cards
+  const autoProjectCards = auto?.projects
+    .filter((p) => p.id !== 'autosar-practice') // already in leadership card
+    .map(projectToSubCard) ?? []
+  const tsSubCards = [TS_LEADERSHIP_CARD, ...autoProjectCards]
 
   return (
     <section id="timeline" aria-label="Career timeline" className="mt-12 scroll-mt-8">
-      <h2
-        className="mb-8 font-mono text-[0.65rem] uppercase tracking-[0.16em]"
-        style={{ color: 'var(--color-accent)', opacity: 0.7 }}
-      >
-        Career Timeline
-      </h2>
+      {/* Section label */}
+      <div className="mb-8 flex items-center gap-3">
+        <span className="pcb-tick" aria-hidden="true" />
+        <h2
+          className="font-mono text-[0.65rem] uppercase tracking-[0.16em]"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          Experience
+        </h2>
+      </div>
 
-      <div>
+      {/* Timeline spine wrapper — the continuous vertical line is rendered by TimelineNode */}
+      <div className="timeline-spine-container">
         {/* ── Mynaric / Rocket Lab (EXPANDED) ── */}
         <NodeWrapper delay={0}>
           <TimelineNode
@@ -108,39 +135,27 @@ export function Timeline() {
             subCards={[ESA_PEGASUS_CARD, SPACE_BACN_CARD]}
             defaultExpanded={true}
             active={true}
+            isLastNode={false}
           />
         </NodeWrapper>
 
-        {/* ── T&S Engineering (EXPANDED, sub-cards collapsed) ── */}
+        {/* ── T&S Engineering (EXPANDED, leadership first) ── */}
         <NodeWrapper delay={1}>
           <TimelineNode
-            period="2018 — 2025"
+            period="2017 — 2025"
             company="T&S Engineering"
-            role="Senior Embedded Software Engineer | AUTOSAR Practice Leader"
+            role="AUTOSAR Practice Leader | Senior Embedded Software Engineer"
             summary="Eight years building and shipping production automotive ECU software — AUTOSAR Classic/Adaptive, ISO 26262 ASIL-D, multicore real-time scheduling, EV charging — for Mercedes-Benz, Volkswagen, BMW, Tesla, and Continental. Founded and scaled the AUTOSAR practice from 1 to 60+ engineers and €11.2M annual revenue."
             accentColor="var(--color-auto)"
-            subCards={autoSubCards}
+            subCards={tsSubCards}
             defaultExpanded={true}
             active={false}
-          />
-        </NodeWrapper>
-
-        {/* ── Personal / Open Source (COLLAPSED) ── */}
-        <NodeWrapper delay={2}>
-          <TimelineNode
-            period="2025 — present (parallel)"
-            company="Personal / Open Source"
-            role="Human-architected, AI-accelerated builds"
-            summary="Production-grade software built outside the day job: multi-agent orchestration, desktop tooling that displaces five-figure vendor licenses, and full-stack web apps validated by hundreds of automated tests."
-            accentColor="var(--color-ai)"
-            subCards={aiSubCards}
-            defaultExpanded={false}
-            active={false}
+            isLastNode={false}
           />
         </NodeWrapper>
 
         {/* ── Education (COLLAPSED) ── */}
-        <NodeWrapper delay={3}>
+        <NodeWrapper delay={2}>
           <TimelineNode
             period="2012 — 2017"
             company="ESEO Angers — Diplôme d'Ingénieur"
@@ -149,19 +164,21 @@ export function Timeline() {
             subCards={EDUCATION_ITEMS}
             defaultExpanded={false}
             active={false}
+            isLastNode={false}
           />
         </NodeWrapper>
 
-        {/* ── Farming (COLLAPSED, no sub-cards — inline bullets) ── */}
-        <NodeWrapper delay={4}>
+        {/* ── Farming (last node — no line below) ── */}
+        <NodeWrapper delay={3} isLast>
           <TimelineNode
             period="~2005 — 2015"
-            company="Rural France — Farm Machinery Operator"
-            role="10 years of mechanical discipline"
+            company="Rural France — Seasonal Farm Work"
+            role="Melon & vegetable harvest · tractor operator · crew lead"
             accentColor="var(--color-edu)"
             subCards={FARMING_ITEMS}
             defaultExpanded={false}
             active={false}
+            isLastNode={true}
           />
         </NodeWrapper>
       </div>

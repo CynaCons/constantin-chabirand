@@ -7,6 +7,11 @@ interface SkillGroup {
   items: string[]
 }
 
+/*
+ * Groups ordered: Optical & DSP first (per spec A/I).
+ * AUTOSAR entry has full BSW stack with examples.
+ * Dark skill-chip class from index.css.
+ */
 const SKILL_GROUPS: SkillGroup[] = [
   {
     label: 'Optical & DSP',
@@ -39,7 +44,7 @@ const SKILL_GROUPS: SkillGroup[] = [
       'ISR-driven design patterns',
       'Assembly (ARM / TriCore startup & debug)',
       'SPI / I2C / UART / CAN / CAN-FD',
-      'Lauterbach TRACE32 · GDB · oscilloscope',
+      'Lauterbach TRACE32 · GDB · oscilloscope · logic analyzer',
       'MIPI CSI-2 / GMSL3 / DSI3',
     ],
   },
@@ -47,7 +52,7 @@ const SKILL_GROUPS: SkillGroup[] = [
     label: 'Automotive, AUTOSAR & Safety',
     accentColor: 'var(--color-auto)',
     items: [
-      'AUTOSAR Classic BSW (OS, RTE, Dcm, Dem, Com, NvM, E2E, EcuM, BswM, SecOC)',
+      'AUTOSAR Classic — full BSW stack (examples: OS, RTE, Dcm/Dem/UDS diagnostics, Com/PduR/CanTp, NvM, EcuM/BswM, WdgM, E2E, Csm/SecOC, network management)',
       'ISO 26262 up to ASIL-D: MPU partitioning, E2E, watchdog, mixed-ASIL isolation',
       'Multicore SoCs: AURIX TC3XX (TriCore), ST SR6P6 (Cortex-R52), TI TDA4VM (A72/R5F)',
       'ARMv8-R hypervisor (EL1/EL2)',
@@ -97,19 +102,33 @@ function SkillGroupCard({ group, index }: { group: SkillGroup; index: number }) 
       transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.07 }}
       className="rounded border p-4"
       style={{
-        background: 'var(--color-surface)',
-        borderColor: 'var(--color-border)',
+        background: '#1A1D22',
+        borderColor: '#2C3038',
       }}
     >
-      <div
-        className="mb-3 font-mono text-[0.62rem] font-medium uppercase tracking-[0.16em]"
-        style={{ color: group.accentColor, opacity: 0.85 }}
-      >
-        {group.label}
+      {/* Group label with accent tick */}
+      <div className="mb-3 flex items-center gap-2">
+        <span
+          aria-hidden="true"
+          style={{
+            display: 'inline-block',
+            width: '10px',
+            height: '2px',
+            background: group.accentColor,
+            borderRadius: '1px',
+            flexShrink: 0,
+          }}
+        />
+        <div
+          className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.18em]"
+          style={{ color: group.accentColor }}
+        >
+          {group.label}
+        </div>
       </div>
       <div className="flex flex-wrap gap-1.5">
         {group.items.map((item) => (
-          <span key={item} className="tech-tag">
+          <span key={item} className="skill-chip">
             {item}
           </span>
         ))}
@@ -120,13 +139,21 @@ function SkillGroupCard({ group, index }: { group: SkillGroup; index: number }) 
 
 export function Skills() {
   return (
-    <section id="skills" aria-label="Technical skills" className="mt-12 border-t pt-10 scroll-mt-8" style={{ borderColor: 'var(--color-rule)' }}>
-      <h2
-        className="mb-6 font-mono text-[0.65rem] uppercase tracking-[0.16em]"
-        style={{ color: 'var(--color-accent)', opacity: 0.7 }}
-      >
-        Technical Skills
-      </h2>
+    <section
+      id="skills"
+      aria-label="Technical skills"
+      className="mt-12 border-t pt-10 scroll-mt-8"
+      style={{ borderColor: 'var(--color-rule)' }}
+    >
+      <div className="mb-6 flex items-center gap-3">
+        <span className="pcb-tick" aria-hidden="true" />
+        <h2
+          className="font-mono text-[0.65rem] uppercase tracking-[0.16em]"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          Technical Skills
+        </h2>
+      </div>
       <div className="space-y-3">
         {SKILL_GROUPS.map((group, i) => (
           <SkillGroupCard key={group.label} group={group} index={i} />

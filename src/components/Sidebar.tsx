@@ -27,11 +27,13 @@ function StackOverflowIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-/* ── Outline nav sections ───────────────────────────────────── */
+/* ── Outline nav sections — 5 sections ────────────────────── */
 const NAV_SECTIONS = [
-  { id: 'summary', label: 'Summary' },
-  { id: 'timeline', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
+  { id: 'summary',     label: 'Summary' },
+  { id: 'timeline',   label: 'Experience' },
+  { id: 'opensource', label: 'Personal / Open Source' },
+  { id: 'initiatives', label: 'Closed Source' },
+  { id: 'skills',     label: 'Skills' },
 ]
 
 function useActiveSection(ids: string[]) {
@@ -47,7 +49,6 @@ function useActiveSection(ids: string[]) {
       const obs = new IntersectionObserver(
         ([entry]) => {
           visibilityMap[id] = entry.intersectionRatio
-          // Pick the section with highest visibility
           const best = Object.entries(visibilityMap).sort((a, b) => b[1] - a[1])[0]
           if (best && best[1] > 0) setActive(best[0])
         },
@@ -83,159 +84,205 @@ export function Sidebar({ profile }: { profile: Profile }) {
 
   return (
     <aside
-      className="sidebar-aside"
+      className="sidebar-aside rounded-lg overflow-hidden"
       aria-label="Navigation and profile"
+      style={{
+        background: 'var(--color-sidebar-bg)',
+        border: '1px solid var(--color-sidebar-border)',
+      }}
     >
-      {/* Monogram + Name */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0 }}
-        className="flex items-center gap-3"
-      >
-        <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded font-mono text-sm font-bold tracking-wide"
+      <div className="p-5">
+        {/* Monogram + Name */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0 }}
+          className="flex items-center gap-3"
+        >
+          <div
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded font-mono text-sm font-bold tracking-wide"
+            style={{
+              background: 'rgba(19, 194, 150, 0.12)',
+              border: '1.5px solid var(--color-accent)',
+              color: 'var(--color-accent)',
+            }}
+          >
+            CC
+          </div>
+          <div>
+            <div
+              className="text-base font-bold leading-tight tracking-tight"
+              style={{ color: 'var(--color-sidebar-ink)' }}
+            >
+              {profile.name}
+            </div>
+            <div
+              className="font-mono text-[0.6rem] uppercase tracking-[0.12em]"
+              style={{ color: 'var(--color-sidebar-muted)' }}
+            >
+              Munich, Germany
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Availability badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
+          className="mt-5 flex items-start gap-2.5 rounded px-3 py-2.5"
           style={{
-            background: 'var(--color-accent-light)',
-            border: '1.5px solid var(--color-accent)',
-            color: 'var(--color-accent)',
+            background: 'rgba(19, 194, 150, 0.08)',
+            borderLeft: '3px solid var(--color-accent)',
           }}
         >
-          CC
-        </div>
-        <div>
-          <div
-            className="text-base font-bold leading-tight tracking-tight"
-            style={{ color: 'var(--color-ink)' }}
-          >
-            {profile.name}
+          <span className="relative flex h-2 w-2 shrink-0 mt-1">
+            <span
+              className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-50"
+              style={{ background: 'var(--color-accent)' }}
+            />
+            <span
+              className="relative inline-flex h-2 w-2 rounded-full"
+              style={{ background: 'var(--color-accent)' }}
+            />
+          </span>
+          <div>
+            <div className="text-sm font-semibold leading-snug" style={{ color: 'var(--color-sidebar-ink)' }}>
+              Looking for opportunities in the USA
+            </div>
+            <div className="mt-0.5 text-[0.7rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
+              Visa-ready — J-1 (Research Scholar / Specialist) or H-1B.
+            </div>
           </div>
-          <div
-            className="font-mono text-[0.6rem] uppercase tracking-[0.12em]"
-            style={{ color: 'var(--color-faint)' }}
-          >
-            Munich, Germany
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Availability badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-        className="mt-5 flex items-center gap-2 rounded px-3 py-2"
-        style={{
-          background: 'var(--color-accent-light)',
-          borderLeft: '3px solid var(--color-accent)',
-        }}
-      >
-        <span className="relative flex h-2 w-2 shrink-0">
-          <span
-            className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-50"
-            style={{ background: 'var(--color-accent)' }}
-          />
-          <span
-            className="relative inline-flex h-2 w-2 rounded-full"
-            style={{ background: 'var(--color-accent)' }}
-          />
-        </span>
-        <span className="text-xs leading-snug" style={{ color: 'var(--color-ink)' }}>
-          Happily working in Munich — open to the USA.
-        </span>
-      </motion.div>
-
-      {/* Contact icons */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.14 }}
-        className="mt-5 flex gap-3"
-      >
-        {profile.links.map((link) => (
-          <a
-            key={link.label}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={link.label}
-            className="flex items-center justify-center rounded p-2 transition-colors"
-            style={{
-              color: 'var(--color-muted)',
-              background: 'var(--color-inset)',
-              border: '1px solid var(--color-border)',
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget
-              el.style.color = 'var(--color-accent)'
-              el.style.borderColor = 'var(--color-accent)'
-              el.style.background = 'var(--color-accent-light)'
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget
-              el.style.color = 'var(--color-muted)'
-              el.style.borderColor = 'var(--color-border)'
-              el.style.background = 'var(--color-inset)'
-            }}
-          >
-            <ContactIcon label={link.label} size={16} />
-          </a>
-        ))}
-      </motion.div>
-
-      {/* Divider */}
-      <div
-        className="mt-6"
-        style={{ height: '1px', background: 'var(--color-rule)' }}
-        aria-hidden="true"
-      />
-
-      {/* Outline nav */}
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-        className="mt-5"
-        aria-label="Page sections"
-      >
-        <div
-          className="mb-2 font-mono text-[0.58rem] uppercase tracking-[0.16em]"
-          style={{ color: 'var(--color-faint)' }}
+        {/* Contact icons */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.14 }}
+          className="mt-5 flex gap-2.5"
         >
-          Outline
-        </div>
-        <ul className="space-y-0.5">
-          {NAV_SECTIONS.map((section) => {
-            const isActive = active === section.id
-            return (
-              <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className="group flex items-center gap-2.5 rounded px-2 py-1.5 text-sm font-medium transition-colors"
-                  style={{
-                    color: isActive ? 'var(--color-accent)' : 'var(--color-muted)',
-                    background: isActive ? 'var(--color-accent-light)' : 'transparent',
-                    textDecoration: 'none',
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }}
-                >
-                  <span
-                    className="h-1.5 w-1.5 shrink-0 rounded-full transition-colors"
+          {profile.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className="flex items-center justify-center rounded p-2 transition-colors"
+              style={{
+                color: 'var(--color-sidebar-muted)',
+                background: 'var(--color-sidebar-surface)',
+                border: '1px solid var(--color-sidebar-border)',
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget
+                el.style.color = 'var(--color-accent)'
+                el.style.borderColor = 'var(--color-accent)'
+                el.style.background = 'rgba(19, 194, 150, 0.10)'
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget
+                el.style.color = 'var(--color-sidebar-muted)'
+                el.style.borderColor = 'var(--color-sidebar-border)'
+                el.style.background = 'var(--color-sidebar-surface)'
+              }}
+            >
+              <ContactIcon label={link.label} size={16} />
+            </a>
+          ))}
+        </motion.div>
+
+        {/* Divider */}
+        <div
+          className="mt-5"
+          style={{ height: '1px', background: 'var(--color-sidebar-border)' }}
+          aria-hidden="true"
+        />
+
+        {/* Outline nav */}
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="mt-4"
+          aria-label="Page sections"
+        >
+          <div
+            className="mb-2 font-mono text-[0.58rem] uppercase tracking-[0.18em]"
+            style={{ color: 'var(--color-sidebar-faint)' }}
+          >
+            Outline
+          </div>
+          <ul className="space-y-0.5">
+            {NAV_SECTIONS.map((section) => {
+              const isActive = active === section.id
+              return (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    className="group flex items-center gap-2.5 rounded px-2 py-1.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.08em] transition-colors"
                     style={{
-                      background: isActive ? 'var(--color-accent)' : 'var(--color-border)',
+                      color: isActive ? 'var(--color-accent)' : 'var(--color-sidebar-muted)',
+                      background: isActive ? 'rgba(19, 194, 150, 0.10)' : 'transparent',
+                      textDecoration: 'none',
                     }}
-                    aria-hidden="true"
-                  />
-                  {section.label}
-                </a>
+                    onClick={(e) => {
+                      e.preventDefault()
+                      document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }}
+                  >
+                    <span
+                      className="h-1 w-3 shrink-0 transition-all"
+                      style={{
+                        background: isActive ? 'var(--color-accent)' : 'var(--color-sidebar-border)',
+                        borderRadius: '1px',
+                      }}
+                      aria-hidden="true"
+                    />
+                    {section.label}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </motion.nav>
+
+        {/* Divider */}
+        <div
+          className="mt-5"
+          style={{ height: '1px', background: 'var(--color-sidebar-border)' }}
+          aria-hidden="true"
+        />
+
+        {/* Certifications / languages mini-block */}
+        <div className="mt-4 space-y-3">
+          <div>
+            <div className="font-mono text-[0.58rem] uppercase tracking-[0.18em]" style={{ color: 'var(--color-sidebar-faint)' }}>
+              Certifications
+            </div>
+            <ul className="mt-1.5 space-y-1">
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
+                Vector CEP BSWInt — 2021/2024
               </li>
-            )
-          })}
-        </ul>
-      </motion.nav>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
+                TOEIC 960 · Cambridge First (A)
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div className="font-mono text-[0.58rem] uppercase tracking-[0.18em]" style={{ color: 'var(--color-sidebar-faint)' }}>
+              Languages
+            </div>
+            <ul className="mt-1.5 space-y-1">
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>French — native</li>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>English — fluent</li>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>German — professional</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </aside>
   )
 }

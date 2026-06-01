@@ -20,12 +20,13 @@ interface TimelineNodeProps {
   accentColor: string
   subCards?: SubCard[]
   defaultExpanded?: boolean
-  subCardsDefaultExpanded?: boolean
-  /** If provided, the node dot pulses (active / current role) */
+  /** If true, the node dot pulses (active / current role) */
   active?: boolean
+  /** If true, no line segment is drawn below this node */
+  isLastNode?: boolean
 }
 
-function SubCardItem({ card }: { card: SubCard }) {
+function SubCardItem({ card, accentColor }: { card: SubCard; accentColor: string }) {
   const [open, setOpen] = useState(false)
 
   return (
@@ -42,11 +43,11 @@ function SubCardItem({ card }: { card: SubCard }) {
         aria-expanded={open}
       >
         <div className="min-w-0">
-          <div className="text-sm font-medium" style={{ color: 'var(--color-ink)' }}>
+          <div className="text-sm font-semibold" style={{ color: 'var(--color-ink)' }}>
             {card.title}
           </div>
           {card.tagline && (
-            <div className="mt-0.5 text-xs" style={{ color: 'var(--color-muted)' }}>
+            <div className="mt-0.5 font-mono text-[0.65rem] uppercase tracking-[0.08em]" style={{ color: 'var(--color-faint)' }}>
               {card.tagline}
             </div>
           )}
@@ -73,7 +74,10 @@ function SubCardItem({ card }: { card: SubCard }) {
               <ul className="space-y-1.5">
                 {card.bullets.map((b, i) => (
                   <li key={i} className="flex gap-2 text-sm" style={{ color: 'var(--color-muted)' }}>
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: 'var(--color-accent-dim)' }} />
+                    <span
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                      style={{ background: accentColor, opacity: 0.6 }}
+                    />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -121,16 +125,20 @@ export function TimelineNode({
   subCards = [],
   defaultExpanded = false,
   active = false,
+  isLastNode = false,
 }: TimelineNodeProps) {
   const [expanded, setExpanded] = useState(defaultExpanded)
 
   return (
     <div className="relative flex gap-6">
-      {/* Spine & dot */}
-      <div className="relative flex flex-col items-center" style={{ width: '1.25rem', flexShrink: 0 }}>
+      {/* ── Spine column ── */}
+      <div
+        className="relative flex flex-col items-center"
+        style={{ width: '1.25rem', flexShrink: 0 }}
+      >
         {/* Dot */}
         <div
-          className={`relative z-10 mt-1 h-3 w-3 rounded-full border-2 ${active ? 'dot-glow' : ''}`}
+          className={`relative z-10 mt-1.5 h-3 w-3 rounded-full border-2 ${active ? 'dot-glow' : ''}`}
           style={{
             background: active ? accentColor : 'var(--color-surface)',
             borderColor: accentColor,
@@ -138,21 +146,23 @@ export function TimelineNode({
           }}
           aria-hidden="true"
         />
-        {/* Line segment */}
-        <div
-          className="flex-1"
-          style={{
-            width: '2px',
-            background: `linear-gradient(to bottom, ${accentColor}60, var(--color-rule))`,
-            marginTop: '4px',
-          }}
-          aria-hidden="true"
-        />
+        {/* Continuous vertical spine — always rendered except on the last node */}
+        {!isLastNode && (
+          <div
+            className="flex-1"
+            style={{
+              width: '2px',
+              background: `linear-gradient(to bottom, ${accentColor}70 0%, var(--color-rule) 100%)`,
+              marginTop: '4px',
+            }}
+            aria-hidden="true"
+          />
+        )}
       </div>
 
-      {/* Content */}
+      {/* ── Content ── */}
       <div className="min-w-0 flex-1 pb-10">
-        {/* Header row */}
+        {/* Header row — clickable to expand/collapse */}
         <button
           onClick={() => setExpanded((v) => !v)}
           className="group flex w-full items-start justify-between gap-3 text-left"
@@ -160,19 +170,22 @@ export function TimelineNode({
         >
           <div className="min-w-0">
             <div
-              className="font-mono text-[0.65rem] uppercase tracking-[0.14em]"
-              style={{ color: accentColor, opacity: 0.85 }}
+              className="font-mono text-[0.63rem] uppercase tracking-[0.14em]"
+              style={{ color: accentColor, opacity: 0.9 }}
             >
               {period}
             </div>
             <h3
-              className="mt-0.5 text-base font-semibold leading-snug transition-colors"
+              className="mt-0.5 text-base font-bold leading-snug transition-colors"
               style={{ color: 'var(--color-ink)' }}
             >
               {company}
             </h3>
             {role && (
-              <div className="mt-0.5 text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+              <div
+                className="mt-0.5 font-mono text-[0.68rem] uppercase tracking-[0.06em]"
+                style={{ color: 'var(--color-muted)' }}
+              >
                 {role}
               </div>
             )}
@@ -206,7 +219,7 @@ export function TimelineNode({
                 {subCards.length > 0 && (
                   <div className="mt-3 space-y-2">
                     {subCards.map((card, i) => (
-                      <SubCardItem key={card.id ?? i} card={card} />
+                      <SubCardItem key={card.id ?? i} card={card} accentColor={accentColor} />
                     ))}
                   </div>
                 )}
