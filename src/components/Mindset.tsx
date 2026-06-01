@@ -18,7 +18,7 @@ const PRINCIPLES: Principle[] = [
   },
   {
     title: 'Built to crack hard problems',
-    body: "Facing a hard problem, I act like I'll die if I don't solve it — it surfaces the low-probability moves I'd otherwise never consider.",
+    body: "On a hard problem I push my thinking into a do-or-die frame — not panic, sharper focus — surfacing the low-probability moves I'd otherwise miss. Resilient under chaos, I thrive in fast, dynamic environments.",
   },
   {
     title: 'AI: I ship, I don\'t just talk',

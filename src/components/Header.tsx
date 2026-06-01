@@ -66,19 +66,6 @@ export function Header() {
         ))}
       </motion.ul>
 
-      {/* Divider */}
-      <motion.div
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 1, scaleX: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.35 }}
-        style={{
-          transformOrigin: 'left',
-          marginTop: '2rem',
-          height: '1px',
-          background: 'var(--color-rule)',
-        }}
-        aria-hidden="true"
-      />
     </header>
   )
 }

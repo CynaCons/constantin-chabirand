@@ -17,6 +17,8 @@ interface TimelineNodeProps {
   company: string
   role?: string
   summary?: string
+  /** Short impact metrics shown as badges (always visible) */
+  metrics?: string[]
   accentColor: string
   subCards?: SubCard[]
   defaultExpanded?: boolean
@@ -121,6 +123,7 @@ export function TimelineNode({
   company,
   role,
   summary,
+  metrics = [],
   accentColor,
   subCards = [],
   defaultExpanded = false,
@@ -197,6 +200,25 @@ export function TimelineNode({
             {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </span>
         </button>
+
+        {/* Impact metrics — always visible */}
+        {metrics.length > 0 && (
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {metrics.map((m) => (
+              <span
+                key={m}
+                className="inline-flex items-center rounded px-2 py-0.5 font-mono text-[0.6rem] font-semibold"
+                style={{
+                  color: accentColor,
+                  background: 'var(--color-inset)',
+                  border: '1px solid var(--color-border)',
+                }}
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Expandable body */}
         <AnimatePresence initial={false}>

@@ -149,6 +149,7 @@ export function Timeline() {
             company="Mynaric Lasercom (now Rocket Lab)"
             role="Senior Embedded Software Engineer"
             summary={MYNARIC_SUMMARY}
+            metrics={['~5× faster control loop', '~25% MCU CPU freed', 'zero → flight-grade in ~6 mo', 'up to 400G tested']}
             accentColor="var(--color-space)"
             subCards={[ESA_PEGASUS_CARD, SPACE_BACN_CARD]}
             defaultExpanded={true}
@@ -164,6 +165,7 @@ export function Timeline() {
             company="T&S Engineering"
             role="AUTOSAR Practice Leader | Senior Embedded Software Engineer"
             summary="Eight years building and shipping production automotive ECU software — AUTOSAR Classic/Adaptive, ISO 26262 ASIL-D, multicore real-time scheduling, EV charging — for Mercedes-Benz, Volkswagen, BMW, Tesla, and Continental. Founded and scaled the AUTOSAR practice from 1 to 60+ engineers and €11.2M annual revenue."
+            metrics={['1 → 60+ engineers', '€11.2M revenue (2023)', '26 engineers trained']}
             accentColor="var(--color-auto)"
             subCards={tsSubCards}
             defaultExpanded={true}
