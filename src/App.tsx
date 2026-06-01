@@ -1,107 +1,58 @@
 import { content } from './data/content'
-import { useHashState } from './hooks/useHashState'
-import Masthead from './components/Masthead'
-import NavRail from './components/NavRail'
-import CurrentStrip from './components/CurrentStrip'
-import DomainSection from './components/DomainSection'
-import LeadershipBand from './components/LeadershipBand'
-import InnovationsList from './components/InnovationsList'
-import Footer from './components/Footer'
-import ProjectModal from './components/ProjectModal'
-
-const META: Record<string, { company: string; period: string; sectionId: string }> = {
-  auto: { company: 'T&S Engineering', period: '2017 — 2025', sectionId: 'sec-auto' },
-  space: { company: 'Mynaric Lasercom', period: '2025 — present', sectionId: 'sec-space' },
-  ai: { company: 'Independent', period: '2025 — present', sectionId: 'sec-ai' },
-}
+import { Header } from './components/Header'
+import { Timeline } from './components/timeline'
+import { Skills } from './components/Skills'
 
 export default function App() {
-  const { profile, domains, current, leadership, innovations } = content
-  const { domain, project, go } = useHashState()
-
-  const byKey = Object.fromEntries(domains.map((d) => [d.key, d]))
-  const auto = byKey['auto']
-  const space = byKey['space']
-  const ai = byKey['ai']
-
-  const activeDomain = domains.find((d) => d.key === domain)
-  const activeProject = activeDomain?.projects.find((p) => p.id === project)
+  const { profile } = content
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ background: 'var(--color-bg)' }}>
       <a
         href="#top"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[70] focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:text-sm"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:px-3 focus:py-2 focus:text-sm"
+        style={{ background: 'var(--color-surface)', color: 'var(--color-accent)' }}
       >
         Skip to content
       </a>
 
-      <div className="mx-auto flex max-w-[940px] gap-12 px-5 py-12 sm:px-8 lg:py-20">
-        <NavRail />
-        <main className="mx-auto w-full max-w-[680px]">
-          <Masthead profile={profile} />
+      <main className="mx-auto max-w-[720px] px-5 py-12 sm:px-8 lg:py-16">
+        <Header profile={profile} />
+        <Timeline />
+        <Skills />
 
-          <div className="mt-12">
-            <CurrentStrip items={current} />
-          </div>
-
-          {auto && (
-            <div className="mt-14">
-              <DomainSection
-                domain={auto}
-                company={META.auto.company}
-                period={META.auto.period}
-                sectionId={META.auto.sectionId}
-                onOpenProject={(pid) => go('auto', pid)}
-              />
-            </div>
-          )}
-
-          <div className="mt-12">
-            <LeadershipBand data={leadership} />
-          </div>
-
-          {space && (
-            <div className="mt-14">
-              <DomainSection
-                domain={space}
-                company={META.space.company}
-                period={META.space.period}
-                sectionId={META.space.sectionId}
-                onOpenProject={(pid) => go('space', pid)}
-              />
-            </div>
-          )}
-
-          {ai && (
-            <div className="mt-14">
-              <DomainSection
-                domain={ai}
-                company={META.ai.company}
-                period={META.ai.period}
-                sectionId={META.ai.sectionId}
-                onOpenProject={(pid) => go('ai', pid)}
-              />
-            </div>
-          )}
-
-          <div className="mt-14">
-            <InnovationsList items={innovations} />
-          </div>
-
-          <div className="mt-14">
-            <Footer profile={profile} domains={domains} />
-          </div>
-        </main>
-      </div>
-
-      {activeProject && activeDomain && (
-        <ProjectModal
-          project={activeProject}
-          accent={`var(--color-${activeDomain.key})`}
-          onClose={() => go(null)}
-        />
-      )}
+        {/* Footer */}
+        <footer
+          className="mt-12 border-t pb-8 pt-6"
+          style={{ borderColor: 'var(--color-rule)' }}
+        >
+          <p
+            className="font-mono text-[0.6rem] uppercase tracking-[0.14em]"
+            style={{ color: 'var(--color-faint)' }}
+          >
+            Constantin Chabirand · Munich, Germany · {new Date().getFullYear()}
+          </p>
+          <p className="mt-1 text-xs" style={{ color: 'var(--color-faint)' }}>
+            Contact via{' '}
+            {profile.links.map((l, i) => (
+              <span key={l.label}>
+                <a
+                  href={l.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors"
+                  style={{ color: 'var(--color-muted)' }}
+                  onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.color = 'var(--color-accent)')}
+                  onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.color = 'var(--color-muted)')}
+                >
+                  {l.label}
+                </a>
+                {i < profile.links.length - 1 ? ' · ' : ''}
+              </span>
+            ))}
+          </p>
+        </footer>
+      </main>
     </div>
   )
 }
