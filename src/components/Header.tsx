@@ -6,8 +6,8 @@ const HEADLINE =
 const SUMMARY_BULLETS = [
   'Embedded Software Engineer & Architect — 9 years shipping production firmware: real-time control, DSP, multicore ARM, bare-metal, functional safety to ASIL-D. ECUs in production vehicles for Mercedes-Benz, VW, BMW, Tesla, Continental.',
   'Built and led, not just coded — founded and scaled an embedded engineering practice from 1 to 60+ engineers (€11.2M annual revenue); founded the AUTOSAR Academy; 50+ technical-commercial presentations to OEMs and Tier-1s.',
-  'Now hands-on in coherent optical comms — building the embedded control, DSP, and test-automation software around an ESA coherent-DWDM transport testbed (WSS, superchannels, OSNR/BER) and a free-space optical terminal. The firmware/systems engineer who makes the optics work.',
-  'Deep technical authority — AUTOSAR (Vector CEP certified), multicore SoC bring-up (AURIX, Cortex-R52 hypervisor, TDA4VM), safety & security architecture.',
+  'Now hands-on in coherent optical communications across two flagship programs — DARPA Space-BACN (sole firmware engineer on a free-space optical terminal) and ESA Pegasus (coherent-DWDM transport testbed: WSS, superchannels, OSNR/BER). I build the embedded control, DSP, and test-automation that makes the optics run.',
+  'Deep in runtime architecture & deterministic systems — OS internals, custom multicore schedulers, and deterministic data exchange and timing to microsecond precision across a 6-core ASIL-D SoC; AUTOSAR (Vector CEP certified), multicore SoC bring-up (AURIX, Cortex-R52 hypervisor, TDA4VM), safety & security architecture.',
   'AI-augmented builder — multi-model orchestration (PowerSpawn) and self-built tooling (Radeau, replacing ~$10k/yr CANoe); ~3–5× delivery velocity.',
 ]
 
