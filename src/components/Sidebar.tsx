@@ -27,9 +27,10 @@ function StackOverflowIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-/* ── Outline nav sections — 5 sections ────────────────────── */
+/* ── Outline nav sections — 6 sections ────────────────────── */
 const NAV_SECTIONS = [
   { id: 'summary',     label: 'Summary' },
+  { id: 'mindset',    label: 'Mindset' },
   { id: 'timeline',   label: 'Experience' },
   { id: 'opensource', label: 'Personal / Open Source' },
   { id: 'initiatives', label: 'Closed Source' },
@@ -222,7 +223,7 @@ export function Sidebar({ profile }: { profile: Profile }) {
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
-                    className="group flex items-center gap-2.5 rounded px-2 py-1.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.08em] transition-colors"
+                    className="group flex items-center gap-2.5 rounded px-2 py-1.5 font-mono text-[0.82rem] font-bold uppercase tracking-[0.06em] transition-colors"
                     style={{
                       color: isActive ? 'var(--color-accent)' : 'var(--color-sidebar-muted)',
                       background: isActive ? 'rgba(19, 194, 150, 0.10)' : 'transparent',

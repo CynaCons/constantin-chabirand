@@ -115,7 +115,7 @@ export function Timeline() {
       <div className="mb-8 flex items-center gap-3">
         <span className="pcb-tick" aria-hidden="true" />
         <h2
-          className="font-mono text-[0.65rem] uppercase tracking-[0.16em]"
+          className="font-mono text-2xl font-bold uppercase tracking-[0.06em]"
           style={{ color: 'var(--color-accent)' }}
         >
           Experience

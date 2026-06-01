@@ -1,6 +1,7 @@
 import { content } from './data/content'
 import { Sidebar } from './components/Sidebar'
 import { Header } from './components/Header'
+import { Mindset } from './components/Mindset'
 import { Timeline } from './components/timeline'
 import { OpenSource } from './components/OpenSource'
 import { Initiatives } from './components/Initiatives'
@@ -39,16 +40,19 @@ export default function App() {
             {/* 1. Summary */}
             <Header />
 
-            {/* 2. Experience — career timeline */}
+            {/* 2. Mindset */}
+            <Mindset />
+
+            {/* 3. Experience — career timeline */}
             <Timeline />
 
-            {/* 3. Personal / Open Source */}
+            {/* 4. Personal / Open Source */}
             <OpenSource />
 
-            {/* 4. Closed Source Initiatives */}
+            {/* 5. Closed Source Initiatives */}
             <Initiatives />
 
-            {/* 5. Skills */}
+            {/* 6. Skills */}
             <Skills />
 
             {/* Footer */}
