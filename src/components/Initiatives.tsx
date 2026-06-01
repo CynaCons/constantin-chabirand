@@ -84,9 +84,9 @@ function InitiativeCard({ item, index }: { item: Initiative; index: number }) {
       transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.07 }}
       className="rounded border p-5"
       style={{
-        background: item.highlight ? 'var(--color-accent-light)' : 'var(--color-surface)',
-        borderColor: item.highlight ? 'var(--color-accent)' : 'var(--color-border)',
-        boxShadow: item.highlight ? '0 0 0 1px var(--color-accent)' : undefined,
+        background: item.highlight ? 'rgba(19, 194, 150, 0.08)' : 'var(--color-surface)',
+        borderColor: item.highlight ? 'rgba(19, 194, 150, 0.35)' : 'var(--color-border)',
+        boxShadow: item.highlight ? '0 0 0 1px rgba(19, 194, 150, 0.20)' : undefined,
       }}
     >
       {/* Header */}

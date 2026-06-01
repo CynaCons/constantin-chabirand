@@ -97,9 +97,9 @@ function ProjectCard({ project, index }: { project: ProjectCard; index: number }
       transition={{ duration: 0.4, ease: 'easeOut', delay: index * 0.07 }}
       className="rounded border p-5"
       style={{
-        background: project.highlight ? 'var(--color-accent-light)' : 'var(--color-surface)',
-        borderColor: project.highlight ? 'var(--color-accent)' : 'var(--color-border)',
-        boxShadow: project.highlight ? '0 0 0 1px var(--color-accent)' : undefined,
+        background: project.highlight ? 'rgba(19, 194, 150, 0.08)' : 'var(--color-surface)',
+        borderColor: project.highlight ? 'rgba(19, 194, 150, 0.35)' : 'var(--color-border)',
+        boxShadow: project.highlight ? '0 0 0 1px rgba(19, 194, 150, 0.20)' : undefined,
       }}
     >
       {/* Title + links row */}
@@ -136,8 +136,8 @@ function ProjectCard({ project, index }: { project: ProjectCard; index: number }
                 className="inline-flex items-center gap-1 rounded px-2 py-0.5 text-[0.68rem] transition-colors"
                 style={{
                   color: 'var(--color-accent)',
-                  background: 'var(--color-accent-light)',
-                  border: '1px solid rgba(19, 194, 150, 0.3)',
+                  background: 'rgba(19, 194, 150, 0.10)',
+                  border: '1px solid rgba(19, 194, 150, 0.35)',
                 }}
               >
                 {lnk.label}

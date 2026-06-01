@@ -1,44 +1,44 @@
 @import 'tailwindcss';
 
 /* ============================================================
-   "Clean Instrument" — Light content, dark sidebar, industrial feel
-   Warm near-white content bg, near-black body text, electric teal accent
+   "Clean Instrument" — Full dark theme, electric teal accent
+   Near-black page, dark card surfaces, high-contrast text
    ============================================================ */
 @theme {
   /* ── Main content surfaces ── */
-  --color-bg:       #FAFAF7; /* dominant — warm near-white */
-  --color-surface:  #FFFFFF; /* card / elevated surface */
-  --color-inset:    #F4F4F0; /* inset / tag background */
-  --color-overlay:  #EEF0EC; /* subtle tinted block */
+  --color-bg:       #0E1013; /* dominant — near-black page */
+  --color-surface:  #1A1D22; /* card / elevated surface */
+  --color-inset:    #1E2126; /* inset / tag background */
+  --color-overlay:  #24282F; /* subtle tinted block */
 
   /* ── Ink ── */
-  --color-ink:      #1A1A1A; /* primary text — near-black, WCAG AA+ */
-  --color-muted:    #4A5568; /* secondary text */
-  --color-faint:    #9AA3AE; /* decorative / dividers */
+  --color-ink:      #EAECEF; /* primary text — near-white, WCAG AA+ */
+  --color-muted:    #B4BAC2; /* secondary text — clearly readable */
+  --color-faint:    #8B939D; /* decorative / dividers — visible minimum */
 
   /* ── Structure ── */
-  --color-rule:     #E2E5E0; /* hairlines */
-  --color-border:   #D4D8D2; /* card borders */
+  --color-rule:     #24282F; /* hairlines / section dividers */
+  --color-border:   #2C3038; /* card borders */
 
   /* ── Accent — electric teal ── */
   --color-accent:       #13C296; /* primary interactive */
-  --color-accent-dim:   #0E9A78; /* muted accent */
-  --color-accent-glow:  rgba(19, 194, 150, 0.15); /* soft halo */
-  --color-accent-light: #E6FAF5; /* very light teal tint */
+  --color-accent-dim:   #17D4A6; /* lighter teal for dark backgrounds */
+  --color-accent-glow:  rgba(19, 194, 150, 0.20); /* soft halo */
+  --color-accent-light: rgba(19, 194, 150, 0.12); /* translucent teal fill */
 
-  /* ── Sidebar surfaces (dark) ── */
+  /* ── Sidebar surfaces (dark — keep as-is, user loves them) ── */
   --color-sidebar-bg:      #15171A; /* deep charcoal */
   --color-sidebar-surface: #1E2126; /* slightly elevated */
   --color-sidebar-border:  #2C3038; /* hairline on dark */
   --color-sidebar-ink:     #E8EAED; /* light text */
-  --color-sidebar-muted:   #9AA3AE; /* secondary on dark */
-  --color-sidebar-faint:   #4A5568; /* faint on dark */
+  --color-sidebar-muted:   #C2C8D0; /* values — clearly legible */
+  --color-sidebar-faint:   #8B939D; /* labels — visible minimum */
 
   /* ── Domain markers ── */
   --color-space:    #13C296; /* teal — optical / space */
-  --color-auto:     #4C6EAD; /* blue-indigo — automotive */
-  --color-ai:       #2B7A4B; /* forest green — AI tooling */
-  --color-edu:      #6B7280; /* slate — education/foundations */
+  --color-auto:     #7DA0E0; /* brightened blue for dark bg — automotive */
+  --color-ai:       #5BBF8A; /* brightened green for dark bg — AI tooling */
+  --color-edu:      #8B939D; /* slate — education/foundations */
 
   /* ── Fonts ── */
   --font-display: 'Inter', 'DM Sans', system-ui, sans-serif;
@@ -48,7 +48,7 @@
 
 html {
   background: var(--color-bg);
-  color-scheme: light;
+  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
@@ -75,7 +75,7 @@ body {
   border-radius: 2px;
 }
 
-/* ---- Light content area tech-tag chip ---- */
+/* ---- Dark content area tech-tag chip ---- */
 .tech-tag {
   display: inline-block;
   padding: 0.15em 0.55em;
@@ -83,16 +83,16 @@ body {
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  color: var(--color-muted);
-  background: var(--color-inset);
-  border: 1px solid var(--color-border);
+  color: #C2C8D0;
+  background: #1E2126;
+  border: 1px solid #2C3038;
   border-radius: 3px;
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s;
 }
 .tech-tag:hover {
   color: var(--color-accent);
-  border-color: var(--color-accent-dim);
+  border-color: var(--color-accent);
 }
 
 /* ---- Dark "component" chip — skills section ---- */
@@ -162,14 +162,14 @@ body {
 *::-webkit-scrollbar { width: 8px; height: 8px; }
 *::-webkit-scrollbar-track { background: var(--color-bg); }
 *::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #2C3038;
   border-radius: 4px;
 }
 
 /* ---- Selection ---- */
 ::selection {
-  background: var(--color-accent-light);
-  color: var(--color-ink);
+  background: rgba(19, 194, 150, 0.30);
+  color: #EAECEF;
 }
 
 /* ---- Sidebar sticky behavior ---- */
@@ -177,7 +177,7 @@ body {
   /* on desktop it will be made sticky by Tailwind classes in JSX */
 }
 
-/* ---- Light card / surface lift ---- */
+/* ---- Dark card / surface lift ---- */
 .card-light {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
