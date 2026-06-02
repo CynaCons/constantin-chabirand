@@ -194,8 +194,13 @@ export function TimelineNode({
             )}
           </div>
           <span
-            className="mt-1 shrink-0 transition-colors"
-            style={{ color: 'var(--color-faint)' }}
+            className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors group-hover:brightness-110"
+            style={{
+              color: 'var(--color-accent)',
+              background: 'rgba(19,194,150,0.12)',
+              borderColor: 'rgba(19,194,150,0.35)',
+            }}
+            aria-hidden="true"
           >
             {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </span>
