@@ -23,7 +23,7 @@ const SPACE_BACN_CARD = {
   tagline: 'Mynaric · DARPA · 2025–present',
   bullets: [
     'Bare-metal ARM Cortex-M7 optical control firmware: blind 4-D polarization control (single-Stokes observability), achieving stable left/right-hand circular polarization on the link (~5× faster response vs. prior approach).',
-    'DDS pilot-tone generation (DMA-to-DAC, zero CPU overhead during tone output) — sine/square tones runtime-configurable in frequency and modulation index.',
+    'DDS pilot-tone generation — fully software-defined and accurate to the Hz, synthesized on-MCU with no dedicated signal-generation hardware; sine/square tones runtime-configurable in frequency and modulation index.',
     'Cholesky/CLS-collapsed FIR demodulation pipeline: full on-MCU DSP chain (complex mixer, BPF, LPF, FIR) with center frequency and bandwidth reconfigurable at runtime without a firmware rebuild.',
     'PAT (pointing/acquisition/tracking) modes coordinating beam intensity, elevation/azimuth, fast steering mirrors, and EDFA/optical-filter control.',
     'Cut MCU CPU load ~25% by redesigning stepper-motor drive (DMA lookup-table profiles), freeing real-time budget for DSP and communications processing.',
