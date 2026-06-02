@@ -15,7 +15,7 @@ export const content: PortfolioContent = {
     headline:
       'Embedded Systems Engineer — Safety-Critical Automotive · Space-Grade Lasercom · AI-Augmented Tooling',
     shortDescriptor: 'Embedded Systems Engineer — ASIL-D Automotive · Space Lasercom · AI-Native Development',
-    bio: 'Nine years shipping production firmware — ASIL-D powertrain ECUs for Tesla, Mercedes, VW and BMW; DARPA optical-terminal control; and a 60-engineer practice built from zero.',
+    bio: 'Nine years shipping production firmware — ASIL-D powertrain ECUs for Tesla, Mercedes, VW and BMW; DARPA/ESA optical-terminal control firmware; and a 60-engineer AUTOSAR practice built from zero.',
     location: 'Munich, Germany',
     availability:
       'Happily based in Munich, EU — and open to US relocation (H-1B or J-1 Research Scholar).',

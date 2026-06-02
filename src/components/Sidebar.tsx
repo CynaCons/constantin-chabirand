@@ -171,7 +171,7 @@ export function Sidebar({ profile }: { profile: Profile }) {
               Looking for opportunities in the USA
             </div>
             <div className="mt-0.5 text-[0.7rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
-              Visa-ready — J-1 (Research Scholar / Specialist) or H-1B.
+              Visa-ready — J-1 Research Scholar (Cultural Vistas/IREX) or H-1B.
             </div>
           </div>
         </motion.div>
