@@ -47,10 +47,10 @@ function PhoneIcon({ size = 16 }: { size?: number }) {
 /* ── Outline nav sections — 6 sections ────────────────────── */
 const NAV_SECTIONS = [
   { id: 'summary',     label: 'Summary' },
-  { id: 'mindset',    label: 'Mindset' },
   { id: 'timeline',   label: 'Experience' },
   { id: 'opensource', label: 'Personal / Open Source' },
   { id: 'initiatives', label: 'Closed Source' },
+  { id: 'mindset',    label: 'Mindset' },
   { id: 'skills',     label: 'Skills' },
 ]
 

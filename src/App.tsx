@@ -40,17 +40,17 @@ export default function App() {
             {/* 1. Summary */}
             <Header />
 
-            {/* 2. Mindset */}
-            <Mindset />
-
-            {/* 3. Experience — career timeline */}
+            {/* 2. Experience — career timeline */}
             <Timeline />
 
-            {/* 4. Personal / Open Source */}
+            {/* 3. Personal / Open Source */}
             <OpenSource />
 
-            {/* 5. Closed Source Initiatives */}
+            {/* 4. Closed Source Initiatives */}
             <Initiatives />
+
+            {/* 5. Mindset */}
+            <Mindset />
 
             {/* 6. Skills */}
             <Skills />
