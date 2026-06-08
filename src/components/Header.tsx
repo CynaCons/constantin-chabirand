@@ -66,6 +66,30 @@ export function Header() {
         ))}
       </motion.ul>
 
+      {/* Cross-domain discipline bridge */}
+      <motion.aside
+        {...fadeUp(0.2)}
+        className="mt-6 rounded-lg p-4 sm:p-5"
+        style={{
+          background: 'rgba(19,194,150,0.06)',
+          border: '1px solid rgba(19,194,150,0.25)',
+        }}
+      >
+        <p
+          className="mb-1.5 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.14em]"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          Why automotive → optics
+        </p>
+        <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>
+          Eight years of ASIL-D automotive firmware — where a bug ships in a million cars and a field
+          fix is impossible — drilled a discipline of formal timing budgets, deterministic scheduling,
+          and first-time-right bring-up. A coherent optical link demands the same rigor: microsecond
+          control loops that must never drop lock. Few engineers carry both the functional-safety
+          discipline <em>and</em> the hands-on photonic-DSP layer.
+        </p>
+      </motion.aside>
+
     </header>
   )
 }
