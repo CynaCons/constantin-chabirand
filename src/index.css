@@ -107,7 +107,9 @@ body {
   background: #1E2126;
   border: 1px solid #2C3038;
   border-radius: 3px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 .skill-chip:hover {
