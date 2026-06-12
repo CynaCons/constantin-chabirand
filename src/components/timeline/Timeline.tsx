@@ -6,10 +6,10 @@ import { content } from '../../data/content'
 /* ── Mynaric re-narrated sub-cards ──────────────────────── */
 const ESA_PEGASUS_CARD = {
   id: 'esa-pegasus-renarrated',
-  title: 'ESA Pegasus — Coherent DWDM Optical-Transport Systems',
-  tagline: 'Mynaric · ESA ScyLight/HydRON · 2026–present',
+  title: 'ESA Pegasus - Coherent DWDM Optical-Transport Systems',
+  tagline: 'Mynaric · ESA ScyLight/HydRON · 2026-present',
   bullets: [
-    'Compose and characterize superchannels (multiple wavelengths, mixed speed/modulation — QPSK/DPSK) across a WSS-routed DWDM testbed, reaching up to 400G in tests.',
+    'Compose and characterize superchannels (multiple wavelengths, mixed speed/modulation - QPSK/DPSK) across a WSS-routed DWDM testbed, reaching up to 400G in tests.',
     'Characterize OSNR/BER across link scenarios; tune wavelength routing through optical mux/demux, EDFA chains, and wavelength-selective switches.',
     'Own the embedded control and test-automation layer end-to-end: device daemons over WebSocket/JSON-RPC, a React/FastAPI control app, an MCP voice/text bench controller, and single-file interactive test reports.',
   ],
@@ -19,11 +19,11 @@ const ESA_PEGASUS_CARD = {
 
 const SPACE_BACN_CARD = {
   id: 'space-bacn-renarrated',
-  title: 'DARPA Space-BACN — Coherent Free-Space Optical Terminal Firmware',
-  tagline: 'Mynaric · DARPA · 2025–present',
+  title: 'DARPA Space-BACN - Coherent Free-Space Optical Terminal Firmware',
+  tagline: 'Mynaric · DARPA · 2025-present',
   bullets: [
     'Bare-metal ARM Cortex-M7 optical control firmware: blind 4-D polarization control (single-Stokes observability), achieving stable left/right-hand circular polarization on the link (~5× faster response vs. prior approach).',
-    'DDS pilot-tone generation — fully software-defined and accurate to the Hz, synthesized on-MCU with no dedicated signal-generation hardware; sine/square tones runtime-configurable in frequency and modulation index.',
+    'DDS pilot-tone generation - fully software-defined and accurate to the Hz, synthesized on-MCU with no dedicated signal-generation hardware; sine/square tones runtime-configurable in frequency and modulation index.',
     'Cholesky/CLS-collapsed FIR demodulation pipeline: full on-MCU DSP chain (complex mixer, BPF, LPF, FIR) with center frequency and bandwidth reconfigurable at runtime without a firmware rebuild.',
     'PAT (pointing/acquisition/tracking) modes coordinating beam intensity, elevation/azimuth, fast steering mirrors, and EDFA/optical-filter control.',
     'Cut MCU CPU load ~25% by redesigning stepper-motor drive (DMA lookup-table profiles), freeing real-time budget for DSP and communications processing.',
@@ -38,14 +38,14 @@ const MYNARIC_SUMMARY =
 /* ── T&S leadership block ── */
 const TS_LEADERSHIP_CARD = {
   id: 'ts-leadership',
-  title: 'AUTOSAR Practice Leader — Founded & Scaled',
-  tagline: 'T&S Engineering, Stuttgart · 2017–2025',
+  title: 'AUTOSAR Practice Leader - Founded & Scaled',
+  tagline: 'T&S Engineering, Stuttgart · 2017-2025',
   bullets: [
-    'Founded and scaled the AUTOSAR practice from 1 to 60+ engineers across Stuttgart, Lyon and Toulouse — the first and most successful practice of its kind at T&S.',
+    'Founded and scaled the AUTOSAR practice from 1 to 60+ engineers across Stuttgart, Lyon and Toulouse - the first and most successful practice of its kind at T&S.',
     '€11.2M annual revenue (2023) via a service-supplier model (full project ownership, not staff aug); 50+ technical-commercial presentations to OEMs and Tier 1s across Europe, the US, Israel and Korea.',
     'Founded the T&S AUTOSAR Academy (2021): internal onboarding plus a paid external training service; 26 engineers trained; adopted as the company-wide standard.',
-    'Built the AUTOSAR Platform — reusable reference implementations to accelerate delivery and strengthen bids.',
-    'Set up engineering backbone from zero: Jira, Bitbucket, knowledge base, hardware inventory, remote device/license access — across three cities.',
+    'Built the AUTOSAR Platform - reusable reference implementations to accelerate delivery and strengthen bids.',
+    'Set up engineering backbone from zero: Jira, Bitbucket, knowledge base, hardware inventory, remote device/license access - across three cities.',
     'Among the first engineering-service providers to earn the Vector CEP for BSW Integration (2021).',
   ],
   tech: ['AUTOSAR Classic / Adaptive', 'Vector MICROSAR', 'ISO 26262', 'ISO 21434', 'ASPICE L2', 'Vector CEP'],
@@ -58,17 +58,17 @@ const TS_LEADERSHIP_CARD = {
 const EDUCATION_ITEMS = [
   {
     id: 'ntust-internship',
-    title: 'Technical Internship — NTUST, Taipei',
+    title: 'Technical Internship - NTUST, Taipei',
     tagline: 'National Taiwan University of Science & Technology · 2016',
     bullets: [
-      'Built a LoRa-based smart-building prototype: connected-sensor firmware on STM32F4, LoRa radio drivers, and a sensor-management GUI — early hands-on with long-range RF in an international R&D lab.',
+      'Built a LoRa-based smart-building prototype: connected-sensor firmware on STM32F4, LoRa radio drivers, and a sensor-management GUI - early hands-on with long-range RF in an international R&D lab.',
     ],
     tech: ['STM32F4', 'LoRa', 'Embedded C', 'C#', 'RF'],
     links: [] as Array<{ label: string; url: string }>,
   },
   {
     id: 'eseo-iot-ble',
-    title: 'IoT Capstone for STMicroelectronics — BLE / BlueZ / Yocto',
+    title: 'IoT Capstone for STMicroelectronics - BLE / BlueZ / Yocto',
     tagline: 'ESEO · industrial-monitoring IoT · led an 8-student team',
     bullets: [
       'Led an 8-student team building an end-to-end industrial-monitoring IoT system: STM32 BLE sensor nodes → an embedded-Linux coordinator running BlueZ5 → TCP/IP → an Android app. Built on Yocto / embedded Linux; owned firmware, BLE-stack integration, and project management.',
@@ -78,10 +78,10 @@ const EDUCATION_ITEMS = [
   },
   {
     id: 'bosch-internship',
-    title: 'Embedded SW Trainee — Bosch, Stuttgart',
+    title: 'Embedded SW Trainee - Bosch, Stuttgart',
     tagline: 'AUTOSAR infotainment migration · end-customer GM · 2017',
     bullets: [
-      'AUTOSAR infotainment software migration across Renesas microcontrollers — first hands-on with production AUTOSAR, the start of the automotive chapter.',
+      'AUTOSAR infotainment software migration across Renesas microcontrollers - first hands-on with production AUTOSAR, the start of the automotive chapter.',
     ],
     tech: ['AUTOSAR', 'Renesas RH850 / V850', 'Embedded C'],
     links: [] as Array<{ label: string; url: string }>,
@@ -92,10 +92,10 @@ const EDUCATION_ITEMS = [
 const FARMING_ITEMS = [
   {
     id: 'farming',
-    title: 'Seasonal farm worker — rural France',
-    tagline: '~2005–2015',
+    title: 'Seasonal farm worker - rural France',
+    tagline: '~2005-2015',
     bullets: [
-      'Seasonal farm worker through my school years — weekends and holidays, April to end of September. Started very young driving tractors, then on the summer melon harvest (also tomatoes, potatoes, peppers). In the later years I led a small crew, running the grading/calibration line, sale preparation, and weekend deliveries.',
+      'Seasonal farm worker through my school years - weekends and holidays, April to end of September. Started very young driving tractors, then on the summer melon harvest (also tomatoes, potatoes, peppers). In the later years I led a small crew, running the grading/calibration line, sale preparation, and weekend deliveries.',
     ],
     tech: [] as string[],
     links: [] as Array<{ label: string; url: string }>,
@@ -140,12 +140,12 @@ export function Timeline() {
         </h2>
       </div>
 
-      {/* Timeline spine wrapper — the continuous vertical line is rendered by TimelineNode */}
+      {/* Timeline spine wrapper - the continuous vertical line is rendered by TimelineNode */}
       <div className="timeline-spine-container">
         {/* ── Mynaric / Rocket Lab (EXPANDED) ── */}
         <NodeWrapper delay={0}>
           <TimelineNode
-            period="2025 — present"
+            period="2025 - present"
             company="Mynaric Lasercom (now Rocket Lab)"
             role="Senior Embedded Software Engineer"
             summary={MYNARIC_SUMMARY}
@@ -161,10 +161,10 @@ export function Timeline() {
         {/* ── T&S Engineering (EXPANDED, leadership first) ── */}
         <NodeWrapper delay={1}>
           <TimelineNode
-            period="2017 — 2025"
+            period="2017 - 2025"
             company="T&S Engineering"
             role="AUTOSAR Practice Leader | Senior Embedded Software Engineer"
-            summary="Eight years building and shipping production automotive ECU software — AUTOSAR Classic/Adaptive, ISO 26262 ASIL-D, multicore real-time scheduling, EV charging — for Mercedes-Benz, Volkswagen, BMW, Tesla, and Continental. Founded and scaled the AUTOSAR practice from 1 to 60+ engineers and €11.2M annual revenue."
+            summary="Eight years building and shipping production automotive ECU software - AUTOSAR Classic/Adaptive, ISO 26262 ASIL-D, multicore real-time scheduling, EV charging - for Mercedes-Benz, Volkswagen, BMW, Tesla, and Continental. Founded and scaled the AUTOSAR practice from 1 to 60+ engineers and €11.2M annual revenue."
             metrics={['1 → 60+ engineers', '€11.2M revenue (2023)', '26 engineers trained']}
             accentColor="var(--color-auto)"
             subCards={tsSubCards}
@@ -177,10 +177,10 @@ export function Timeline() {
         {/* ── Education (COLLAPSED) ── */}
         <NodeWrapper delay={2}>
           <TimelineNode
-            period="2012 — 2017"
-            company="ESEO Angers — Diplôme d'Ingénieur"
+            period="2012 - 2017"
+            company="ESEO Angers - Diplôme d'Ingénieur"
             role="Embedded Systems · International Internships"
-            summary="Five-year French engineering degree (MSc-equivalent) specialized in embedded systems — with an international internship in Taipei and hands-on IoT/BLE projects."
+            summary="Five-year French engineering degree (MSc-equivalent) specialized in embedded systems - with an international internship in Taipei and hands-on IoT/BLE projects."
             accentColor="var(--color-edu)"
             subCards={EDUCATION_ITEMS}
             defaultExpanded={false}
@@ -189,11 +189,11 @@ export function Timeline() {
           />
         </NodeWrapper>
 
-        {/* ── Farming (last node — no line below) ── */}
+        {/* ── Farming (last node - no line below) ── */}
         <NodeWrapper delay={3} isLast>
           <TimelineNode
-            period="~2005 — 2015"
-            company="Rural France — Seasonal Farm Work"
+            period="~2005 - 2015"
+            company="Rural France - Seasonal Farm Work"
             role="Melon & vegetable harvest · tractor operator · crew lead"
             accentColor="var(--color-edu)"
             subCards={FARMING_ITEMS}

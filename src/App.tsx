@@ -40,7 +40,7 @@ export default function App() {
             {/* 1. Summary */}
             <Header />
 
-            {/* 2. Experience — career timeline */}
+            {/* 2. Experience - career timeline */}
             <Timeline />
 
             {/* 3. Personal / Open Source */}

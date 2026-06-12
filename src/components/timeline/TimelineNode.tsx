@@ -149,7 +149,7 @@ export function TimelineNode({
           }}
           aria-hidden="true"
         />
-        {/* Continuous vertical spine — always rendered except on the last node */}
+        {/* Continuous vertical spine - always rendered except on the last node */}
         {!isLastNode && (
           <div
             className="flex-1"
@@ -165,7 +165,7 @@ export function TimelineNode({
 
       {/* ── Content ── */}
       <div className="min-w-0 flex-1 pb-10">
-        {/* Header row — clickable to expand/collapse */}
+        {/* Header row - clickable to expand/collapse */}
         <button
           onClick={() => setExpanded((v) => !v)}
           className="group flex w-full items-start justify-between gap-3 text-left"
@@ -206,7 +206,7 @@ export function TimelineNode({
           </span>
         </button>
 
-        {/* Impact metrics — always visible */}
+        {/* Impact metrics - always visible */}
         {metrics.length > 0 && (
           <div className="mt-2.5 flex flex-wrap gap-1.5">
             {metrics.map((m) => (

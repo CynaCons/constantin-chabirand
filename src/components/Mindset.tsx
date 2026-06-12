@@ -14,15 +14,15 @@ const PRINCIPLES: Principle[] = [
   },
   {
     title: 'Hands-on, grounded',
-    body: "I grew up working a family farm — no working hours, just what needs doing. When something's broken, I put my hands in it and fix it.",
+    body: "I grew up working a family farm - no working hours, just what needs doing. When something's broken, I put my hands in it and fix it.",
   },
   {
     title: 'Built to crack hard problems',
-    body: "On a hard problem I push my thinking into a do-or-die frame — not panic, sharper focus — surfacing the low-probability moves I'd otherwise miss. Resilient under chaos, I thrive in fast, dynamic environments.",
+    body: "On a hard problem I push my thinking into a do-or-die frame - not panic, sharper focus - surfacing the low-probability moves I'd otherwise miss. Resilient under chaos, I thrive in fast, dynamic environments.",
   },
   {
     title: 'AI: I ship, I don\'t just talk',
-    body: 'Everyone talks about AI. I build production tools and real firmware with it — and I deliver 3–5× faster than before.',
+    body: 'Everyone talks about AI. I build production tools and real firmware with it - and I deliver 3-5× faster than before.',
     highlight: true,
   },
 ]

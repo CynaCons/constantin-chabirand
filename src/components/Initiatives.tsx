@@ -23,16 +23,16 @@ const INITIATIVES: Initiative[] = [
   {
     id: 'dynamic-app-report',
     title: 'Dynamic App-Report',
-    tagline: 'A new report format — data + a web app in one portable .HTML',
+    tagline: 'A new report format - data + a web app in one portable .HTML',
     description:
-      'A new way to deliver test results. Instead of a static PDF, Excel sheet or Confluence page, the test-automation tools emit a single self-contained .HTML file with all the data embedded plus a built-in web app to replay and explore it — dynamic charts, zoom, drill-down. A report you interrogate, not just read. Introduced on SpaceBACN and Pegasus.',
+      'A new way to deliver test results. Instead of a static PDF, Excel sheet or Confluence page, the test-automation tools emit a single self-contained .HTML file with all the data embedded plus a built-in web app to replay and explore it - dynamic charts, zoom, drill-down. A report you interrogate, not just read. Introduced on SpaceBACN and Pegasus.',
     tech: ['Single-file HTML', 'Embedded data', 'JS charting', 'Portable reports'],
     highlight: true,
   },
   {
     id: 'radeau',
     title: 'RadEAU',
-    tagline: 'Internal CANoe + CANape replacement — deployed at Mynaric',
+    tagline: 'Internal CANoe + CANape replacement - deployed at Mynaric',
     description:
       'A corporate replacement for Vector CANoe and CANape: CAN/CAN-FD trace analysis and ECU calibration including A2L support. Deployed on the production line. Built with React + Rust + Tauri.',
     tech: ['React', 'Rust', 'Tauri', 'CAN / CAN-FD', 'A2L / ASAM MCD-2 MC', 'JSON-RPC'],
@@ -43,13 +43,13 @@ const INITIATIVES: Initiative[] = [
     title: 'Architecture & CAN-bus visualizers',
     tagline: 'Software architecture & .DBC rendered in AUTOSAR RTE conventions',
     description:
-      'Visualization tools that render software architecture and CAN communication using AUTOSAR RTE visual conventions — components, sender/receiver ports and connectors — so system structure and bus traffic (.DBC) are readable at a glance.',
+      'Visualization tools that render software architecture and CAN communication using AUTOSAR RTE visual conventions - components, sender/receiver ports and connectors - so system structure and bus traffic (.DBC) are readable at a glance.',
     tech: ['AUTOSAR RTE', 'DBC / CAN', 'Architecture visualization'],
   },
   {
     id: 'sil-twin',
     title: 'SIL-Twin',
-    tagline: 'Software-in-the-loop digital twin — real firmware on a PC',
+    tagline: 'Software-in-the-loop digital twin - real firmware on a PC',
     description:
       'A custom SIL-MCAL replaces the microcontroller HAL so production firmware runs unmodified on a PC. Mixes real and virtual CAN nodes on the same bus simultaneously. Integrated into RadEAU over JSON-RPC.',
     tech: ['Embedded C', 'Rust', 'JSON-RPC', 'CAN', 'Virtual ECU / SIL'],
@@ -58,7 +58,7 @@ const INITIATIVES: Initiative[] = [
   {
     id: 'optical-calibration',
     title: 'Optical-filter production calibration system',
-    tagline: 'AI-augmented, built in ~24 h — used on the production line',
+    tagline: 'AI-augmented, built in ~24 h - used on the production line',
     description:
       'Complete calibration flow built in roughly 24 hours via AI-augmented tool composition: instrument data parsing, optimal-mapping search, and automated per-device voltage→wavelength lookup-table generation. Tables feed directly into production firmware.',
     tech: ['Python', 'CAN', 'RadEAU', 'AI-augmented development', 'Optical spectrum analysis'],
@@ -162,7 +162,7 @@ export function Initiatives() {
         </h2>
       </div>
       <p className="mb-6 text-xs" style={{ color: 'var(--color-faint)' }}>
-        Internal tools built at Mynaric — no public repos.
+        Internal tools built at Mynaric - no public repos.
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2">

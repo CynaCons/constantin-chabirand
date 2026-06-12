@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion'
 
 const HEADLINE =
-  'Embedded Software Engineer & Architect — real-time firmware, multicore SoCs, safety & cybersecurity, AI-augmented — now hands-on in coherent optical comms.'
+  'Embedded Software Engineer & Architect - real-time firmware, multicore SoCs, safety & cybersecurity, AI-augmented - now hands-on in coherent optical comms.'
 
 const FOCUS_TAGS = ['Space-Tech', 'Real-Time Embedded', 'Multicore SoCs', 'Safety & Cybersecurity', 'AI-Augmented', 'Optical Comms']
 
 const SUMMARY_BULLETS = [
-  'Embedded Software Engineer & Architect — 9 years shipping production firmware: real-time control, DSP, multicore ARM, bare-metal, functional safety to ASIL-D. ECUs in production vehicles for Mercedes-Benz, VW, BMW, Tesla, Continental.',
-  'Built and led, not just coded — founded and scaled an embedded engineering practice from 1 to 60+ engineers (€11.2M annual revenue); founded the AUTOSAR Academy; 50+ technical-commercial presentations to OEMs and Tier-1s.',
-  'Now hands-on in coherent optical communications across two flagship programs — DARPA Space-BACN (sole firmware engineer on a free-space optical terminal) and ESA Pegasus (coherent-DWDM transport: WSS, superchannels, OSNR/BER, up to 400G). On Space-BACN I own the on-MCU DSP and microsecond control loops that keep a coherent link locked — blind polarization control, a runtime-reconfigurable FIR demod chain, DDS pilot-tone generation. That is the control-and-DSP layer a silicon-photonics interconnect needs to hold a link stable between accelerators.',
-  'Deep in runtime architecture & deterministic systems — OS internals, custom multicore schedulers, and deterministic data exchange and timing to microsecond precision across a 6-core ASIL-D SoC; AUTOSAR (Vector CEP certified), multicore SoC bring-up (AURIX, Cortex-R52 hypervisor, TDA4VM), safety & security architecture.',
-  'AI-augmented builder — multi-model orchestration (PowerSpawn) and self-built tooling (Radeau, replacing ~$10k/yr CANoe); ~3–5× delivery velocity.',
+  'Embedded Software Engineer & Architect - 9 years shipping production firmware: real-time control, DSP, multicore ARM, bare-metal, functional safety to ASIL-D. ECUs in production vehicles for Mercedes-Benz, VW, BMW, Tesla, Continental.',
+  'Built and led, not just coded - founded and scaled an embedded engineering practice from 1 to 60+ engineers (€11.2M annual revenue); founded the AUTOSAR Academy; 50+ technical-commercial presentations to OEMs and Tier-1s.',
+  'Now hands-on in coherent optical communications across two flagship programs - DARPA Space-BACN (sole firmware engineer on a free-space optical terminal) and ESA Pegasus (coherent-DWDM transport: WSS, superchannels, OSNR/BER, up to 400G). On Space-BACN I own the on-MCU DSP and microsecond control loops that keep a coherent link locked - blind polarization control, a runtime-reconfigurable FIR demod chain, DDS pilot-tone generation. That is the control-and-DSP layer a silicon-photonics interconnect needs to hold a link stable between accelerators.',
+  'Deep in runtime architecture & deterministic systems - OS internals, custom multicore schedulers, and deterministic data exchange and timing to microsecond precision across a 6-core ASIL-D SoC; AUTOSAR (Vector CEP certified), multicore SoC bring-up (AURIX, Cortex-R52 hypervisor, TDA4VM), safety & security architecture.',
+  'AI-augmented builder - multi-model orchestration (PowerSpawn) and self-built tooling (Radeau, replacing ~$10k/yr CANoe); ~3-5× delivery velocity.',
 ]
 
 const EASING = [0.16, 1, 0.3, 1] as const
@@ -82,8 +82,8 @@ export function Header() {
           Why automotive → optics
         </p>
         <p className="text-sm leading-relaxed" style={{ color: 'var(--color-muted)' }}>
-          Eight years of ASIL-D automotive firmware — where a bug ships in a million cars and a field
-          fix is impossible — drilled a discipline of formal timing budgets, deterministic scheduling,
+          Eight years of ASIL-D automotive firmware - where a bug ships in a million cars and a field
+          fix is impossible - drilled a discipline of formal timing budgets, deterministic scheduling,
           and first-time-right bring-up. A coherent optical link demands the same rigor: microsecond
           control loops that must never drop lock. Few engineers carry both the functional-safety
           discipline <em>and</em> the hands-on photonic-DSP layer.

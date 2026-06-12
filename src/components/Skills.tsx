@@ -53,11 +53,11 @@ const SKILL_GROUPS: SkillGroup[] = [
     label: 'Automotive, AUTOSAR & Safety',
     accentColor: 'var(--color-auto)',
     items: [
-      'AUTOSAR Classic — full BSW stack (examples: OS, RTE, Dcm/Dem/UDS diagnostics, Com/PduR/CanTp, NvM, EcuM/BswM, WdgM, E2E, Csm/SecOC, network management)',
+      'AUTOSAR Classic - full BSW stack (examples: OS, RTE, Dcm/Dem/UDS diagnostics, Com/PduR/CanTp, NvM, EcuM/BswM, WdgM, E2E, Csm/SecOC, network management)',
       'ISO 26262 up to ASIL-D: MPU partitioning, E2E, watchdog, mixed-ASIL isolation',
       'Multicore SoCs: AURIX TC3XX (TriCore), ST SR6P6 (Cortex-R52), TI TDA4VM (A72/R5F)',
       'ARMv8-R hypervisor (EL1/EL2)',
-      'Vector MICROSAR · DaVinci · CANoe · CANape — CEP certified',
+      'Vector MICROSAR · DaVinci · CANoe · CANape - CEP certified',
       'Automotive Ethernet (SOME/IP · DoIP) · CAN-FD · LIN · FlexRay',
       'ISO 15118 / SLAC / CCS (EV charging)',
       'UDS diagnostics · Secure Boot · SecOC · ISO 21434',

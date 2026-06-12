@@ -44,7 +44,7 @@ function PhoneIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-/* ── Outline nav sections — 6 sections ────────────────────── */
+/* ── Outline nav sections - 6 sections ────────────────────── */
 const NAV_SECTIONS = [
   { id: 'summary',     label: 'Summary' },
   { id: 'timeline',   label: 'Experience' },
@@ -171,7 +171,7 @@ export function Sidebar({ profile }: { profile: Profile }) {
               Looking for opportunities in the USA
             </div>
             <div className="mt-0.5 text-[0.7rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
-              Visa-eligible — J-1 Research Scholar or Specialist (Cultural Vistas/IREX), or H-1B.
+              Visa-eligible - J-1 Research Scholar or Specialist (Cultural Vistas/IREX), or H-1B.
             </div>
           </div>
         </motion.div>
@@ -291,7 +291,7 @@ export function Sidebar({ profile }: { profile: Profile }) {
             </div>
             <ul className="mt-1.5 space-y-1">
               <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
-                Vector CEP BSWInt — 2021/2024
+                Vector CEP BSWInt - 2021/2024
               </li>
               <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
                 TOEIC 960 · Cambridge First (A)
@@ -303,9 +303,9 @@ export function Sidebar({ profile }: { profile: Profile }) {
               Languages
             </div>
             <ul className="mt-1.5 space-y-1">
-              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>French — native</li>
-              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>English — fluent</li>
-              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>German — professional</li>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>French - native</li>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>English - fluent</li>
+              <li className="text-[0.72rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>German - professional</li>
             </ul>
           </div>
         </div>

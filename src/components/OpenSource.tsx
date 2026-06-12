@@ -14,7 +14,7 @@ interface ProjectCard {
 
 /*
  * Project list per spec D. FinOracle removed.
- * NOTE: "OpenT A2L Forge" and "PowerNote / PowerPlanner" descriptions are DRAFTS —
+ * NOTE: "OpenT A2L Forge" and "PowerNote / PowerPlanner" descriptions are DRAFTS -
  * confirm wording with Constantin before publishing.
  */
 const OPEN_SOURCE_PROJECTS: ProjectCard[] = [
@@ -47,7 +47,7 @@ const OPEN_SOURCE_PROJECTS: ProjectCard[] = [
     title: 'OpenT A2L Forge',
     tagline: 'Populate an A2L straight from an .elf',
     description:
-      'Generate and update A2L (ASAM MCD-2 MC) calibration files directly from an .elf — auto-extracting variables, structs, arrays, matrices and nested types into A2L symbols, so you keep your A2L in sync and start monitoring variables in seconds. Also create, edit and validate A2L.',
+      'Generate and update A2L (ASAM MCD-2 MC) calibration files directly from an .elf - auto-extracting variables, structs, arrays, matrices and nested types into A2L symbols, so you keep your A2L in sync and start monitoring variables in seconds. Also create, edit and validate A2L.',
     tech: ['.elf parsing', 'A2L / ASAM MCD-2 MC', 'XCP', 'Calibration'],
     links: [],
     highlight: true,
@@ -56,9 +56,9 @@ const OPEN_SOURCE_PROJECTS: ProjectCard[] = [
   {
     id: 'powernote-powerplanner',
     title: 'PowerNote & PowerPlanner',
-    tagline: 'Single-file apps — app + data in one HTML file',
+    tagline: 'Single-file apps - app + data in one HTML file',
     description:
-      'Personal productivity apps on a novel single-file architecture: the entire application and its data live in one portable, self-contained HTML file — no backend, no install, fully shareable.',
+      'Personal productivity apps on a novel single-file architecture: the entire application and its data live in one portable, self-contained HTML file - no backend, no install, fully shareable.',
     tech: ['Single-file HTML', 'JavaScript', 'Zero-backend'],
     links: [],
   },
@@ -78,7 +78,7 @@ const OPEN_SOURCE_PROJECTS: ProjectCard[] = [
     title: 'STM32 Peripherals Exploration',
     tagline: 'Bare-metal embedded C, register-level peripheral patterns',
     description:
-      'Demonstrations of peripheral initialization and ISR-driven data paths at the register level — timers, UART, SPI, I2C, interrupt-driven design patterns on STM32 hardware.',
+      'Demonstrations of peripheral initialization and ISR-driven data paths at the register level - timers, UART, SPI, I2C, interrupt-driven design patterns on STM32 hardware.',
     tech: ['Embedded C', 'STM32', 'Bare-metal', 'Register-level'],
     links: [
       { label: 'GitHub', url: 'https://github.com/CynaCons/STM32-peripherals-exploration' },
