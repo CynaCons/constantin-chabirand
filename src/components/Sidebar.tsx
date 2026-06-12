@@ -130,12 +130,12 @@ export function Sidebar({ profile }: { profile: Profile }) {
             CC
           </div>
           <div>
-            <div
+            <h1
               className="text-base font-bold leading-tight tracking-tight"
               style={{ color: 'var(--color-sidebar-ink)' }}
             >
               {profile.name}
-            </div>
+            </h1>
             <div
               className="font-mono text-[0.6rem] uppercase tracking-[0.12em]"
               style={{ color: 'var(--color-sidebar-muted)' }}

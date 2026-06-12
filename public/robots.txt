@@ -1,0 +1,15 @@
+# robots.txt — Constantin Chabirand portfolio
+#
+# NOTE: Search engines only honor robots.txt at the DOMAIN ROOT
+# (https://cynacons.github.io/robots.txt). This file lives under the
+# project subpath, so it is informational rather than authoritative.
+# Crawling of the whole github.io domain is currently allowed
+# (the root robots.txt returns 404, which crawlers treat as "allow all").
+#
+# Sitemap discovery for a project page is done by submitting the sitemap
+# URL directly in Google Search Console and Bing Webmaster Tools.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://cynacons.github.io/constantin-chabirand/sitemap.xml
