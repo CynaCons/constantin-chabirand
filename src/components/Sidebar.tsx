@@ -168,10 +168,10 @@ export function Sidebar({ profile }: { profile: Profile }) {
           </span>
           <div>
             <div className="text-sm font-semibold leading-snug" style={{ color: 'var(--color-sidebar-ink)' }}>
-              Looking for opportunities in the USA
+              Principal Software Architect at Aeva
             </div>
             <div className="mt-0.5 text-[0.7rem] leading-snug" style={{ color: 'var(--color-sidebar-muted)' }}>
-              Visa-eligible - J-1 Research Scholar or Specialist (Cultural Vistas/IREX), or H-1B.
+              Embedded systems and coherent optical communications - Munich, Germany.
             </div>
           </div>
         </motion.div>

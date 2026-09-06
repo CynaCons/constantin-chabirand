@@ -18,7 +18,7 @@ export const content: PortfolioContent = {
     bio: 'Nine years shipping production firmware - ASIL-D powertrain ECUs for Tesla, Mercedes, VW and BMW; DARPA/ESA optical-terminal control firmware; and a 60-engineer AUTOSAR practice built from zero.',
     location: 'Munich, Germany',
     availability:
-      'Happily based in Munich, EU - and open to US relocation (H-1B or J-1 Research Scholar / Specialist).',
+      'Principal Software Architect at Aeva - based in Munich, Germany.',
     languages: [
       'French (native)',
       'English (fluent - TOEIC 960)',
